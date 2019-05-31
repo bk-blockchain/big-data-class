@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  spark_node:
+    container_name: spark_node
+    image: spark_node:latest
+    build:
+      context: .
+      labels:
+        com.bkwallet.description: "Big Data Class"
+        com.bkwallet.maintainer: "ChungDT <chungdt@soict.hust.edu.vn>"
+    env_file: .env
+    expose:
+      - 8080
+      - 4040
+    healthcheck:
+      disable: true
+    ports:
+      - 8080:8080
+      - 4040:4040
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "2"
+    restart: "always"
