@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  spark_node:
-    container_name: spark_node
-    image: spark_node:latest
+  spark_master:
+    container_name: spark_master
+    image: spark_master:latest
     build:
       context: .
       labels:
@@ -11,12 +11,34 @@ services:
     env_file: .env
     expose:
       - 8080
-      - 4040
     healthcheck:
       disable: true
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     ports:
-      - 8080:8080
-      - 4040:4040
+      - "8080:8080"
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "2"
+    restart: "always"
+    networks:
+      spark-network:
+        ipv4_address: 10.0.1.10
+
+  spark_worker_01:
+    container_name: spark_worker_01
+    image: spark_master:latest
+    build:
+      context: .
+      labels:
+        com.bkwallet.description: "Big Data Class"
+        com.bkwallet.maintainer: "ChungDT <chungdt@soict.hust.edu.vn>"
+    env_file: .env
+    healthcheck:
+      disable: true
     dns:
       - 8.8.8.8
       - 8.8.4.4
@@ -26,3 +48,30 @@ services:
         max-size: "50m"
         max-file: "2"
     restart: "always"
+
+  spark_worker_02:
+    container_name: spark_worker_02
+    image: spark_master:latest
+    build:
+      context: .
+      labels:
+        com.bkwallet.description: "Big Data Class"
+        com.bkwallet.maintainer: "ChungDT <chungdt@soict.hust.edu.vn>"
+    env_file: .env
+    healthcheck:
+      disable: true
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "2"
+    restart: "always"
+
+networks:
+  spark-network:
+    ipam:
+      config:
+        - subnet: 10.0.1.0/24
