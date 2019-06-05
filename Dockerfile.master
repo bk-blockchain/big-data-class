@@ -4,6 +4,8 @@ RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://ar
 RUN apt-get update
 RUN apt-get install -y vim
 
+RUN pip install pika --upgrade
+
 COPY wordcount.py .
 
 EXPOSE 4040 6066 7077 8080 18080 8081 80

@@ -1,0 +1,33 @@
+{
+  "paragraphs": [
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559702926515_402506148",
+      "id": "20190605-024846_1387444646",
+      "dateCreated": "Jun 5, 2019 2:48:46 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Spark-cluster",
+  "id": "2ED5HXUS9",
+  "angularObjects": {
+    "2EEUGYXEQ:shared_process": [],
+    "2EDNQXFJ1:shared_process": [],
+    "2EEGUTAX1:shared_process": [],
+    "2ED6PTQUM:shared_process": [],
+    "2ECEFEPZH:shared_process": [],
+    "2EBY4E4BS:shared_process": [],
+    "2EF7QJ4PS:shared_process": [],
+    "2ECSWPXVY:shared_process": [],
+    "2EERWK1UE:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
