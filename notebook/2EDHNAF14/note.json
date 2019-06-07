@@ -139,19 +139,9 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "/Big-data-class/RabbitMQ",
+  "name": "/Big-data-class/Module-13/RabbitMQ",
   "id": "2EDHNAF14",
-  "angularObjects": {
-    "2EDE9QKXM:shared_process": [],
-    "2EC5CZ1AS:shared_process": [],
-    "2EE6BC4JX:shared_process": [],
-    "2EEJVYCHZ:shared_process": [],
-    "2EF21AF3E:shared_process": [],
-    "2EE6B92YG:shared_process": [],
-    "2ECNH72HD:shared_process": [],
-    "2EC9WY676:shared_process": [],
-    "2EETCT9YX:shared_process": []
-  },
+  "angularObjects": {},
   "config": {},
   "info": {}
 }

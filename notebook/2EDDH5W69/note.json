@@ -1,33 +1,72 @@
 {
   "paragraphs": [
     {
+      "text": "%md\n## Install cluster\n+ https://blog.ruanbekker.com/blog/2018/04/29/running-a-3-node-elasticsearch-cluster-with-docker-compose-on-your-laptop-for-testing/",
       "user": "anonymous",
-      "config": {},
+      "dateUpdated": "Jun 5, 2019 5:24:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eInstall cluster\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://blog.ruanbekker.com/blog/2018/04/29/running-a-3-node-elasticsearch-cluster-with-docker-compose-on-your-laptop-for-testing/\"\u003ehttps://blog.ruanbekker.com/blog/2018/04/29/running-a-3-node-elasticsearch-cluster-with-docker-compose-on-your-laptop-for-testing/\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1559702900715_347841156",
       "id": "20190605-024820_860530370",
       "dateCreated": "Jun 5, 2019 2:48:20 AM",
+      "dateStarted": "Jun 5, 2019 5:24:59 PM",
+      "dateFinished": "Jun 5, 2019 5:25:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 5, 2019 5:25:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559755498847_1248876298",
+      "id": "20190605-172458_439292384",
+      "dateCreated": "Jun 5, 2019 5:24:58 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "/Big-data-class/Elasticsearch",
+  "name": "/Big-data-class/Module-13/Elasticsearch",
   "id": "2EDDH5W69",
-  "angularObjects": {
-    "2EEUGYXEQ:shared_process": [],
-    "2EDNQXFJ1:shared_process": [],
-    "2EEGUTAX1:shared_process": [],
-    "2ED6PTQUM:shared_process": [],
-    "2ECEFEPZH:shared_process": [],
-    "2EBY4E4BS:shared_process": [],
-    "2ECSWPXVY:shared_process": [],
-    "2EF7QJ4PS:shared_process": [],
-    "2EERWK1UE:shared_process": []
-  },
+  "angularObjects": {},
   "config": {},
   "info": {}
 }

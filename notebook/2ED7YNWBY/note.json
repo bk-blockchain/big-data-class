@@ -1,0 +1,481 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n#Link\n+ https://github.com/pedroduartecosta/Spark-PredictFlightDelay\n\n# Variable descriptions\nn.  | Forbidden |  Name |\tDescription\n--  |-- |  ------| -------------\n1\t|\t| Year |\t1987-2008\n2\t|\t| Month |\t1-12\n3\t|\t| DayofMonth |\t1-31\n4\t|\t| DayOfWeek |\t1 (Monday) - 7 (Sunday)\n5\t|\t| DepTime |\tactual departure time (local, hhmm)\n6\t|\t| CRSDepTime |\tscheduled departure time (local, hhmm)\n7\t| x\t| ArrTime |\tactual arrival time (local, hhmm)\n8\t|\t| CRSArrTime |\tscheduled arrival time (local, hhmm)\n9\t|\t| UniqueCarrier |\tunique carrier code\n10\t|\t| FlightNum |\tflight number\n11\t|\t| TailNum |\tplane tail number\n12\t| x\t| ActualElapsedTime |\tin minutes\n13\t|\t| CRSElapsedTime |\tin minutes\n14\t| x\t| AirTime |\tin minutes\n15\t|\t| ArrDelay |\tarrival delay, in minutes\n16\t|\t| DepDelay |\tdeparture delay, in minutes\n17\t|\t| Origin |\torigin IATA airport code\n18\t|\t| Dest |\tdestination IATA airport code\n19\t|\t| Distance |\tin miles\n20\t| x\t| TaxiIn |\ttaxi in time, in minutes\n21\t|\t| TaxiOut |\ttaxi out time in minutes\n22\t|\t| Cancelled |\twas the flight cancelled?\n23\t|\t| CancellationCode |\treason for cancellation (A \u003d carrier, B \u003d weather, C \u003d NAS, D \u003d security)\n24\t| x | Diverted |\t1 \u003d yes, 0 \u003d no\n25\t| x | CarrierDelay |\tin minutes\n26\t| x | WeatherDelay |\tin minutes\n27\t| x | NASDelay |\tin minutes\n28\t| x | SecurityDelay |\tin minutes\n29\t| x | LateAircraftDelay |\tin minutes\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 4:00:36 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e#Link\u003cbr/\u003e+ \u003ca href\u003d\"https://github.com/pedroduartecosta/Spark-PredictFlightDelay\"\u003ehttps://github.com/pedroduartecosta/Spark-PredictFlightDelay\u003c/a\u003e\u003c/p\u003e\n\u003ch1\u003eVariable descriptions\u003c/h1\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n    \u003ctr\u003e\n      \u003cth\u003en. \u003c/th\u003e\n      \u003cth\u003eForbidden \u003c/th\u003e\n      \u003cth\u003eName \u003c/th\u003e\n      \u003cth\u003eDescription\u003c/th\u003e\n    \u003c/tr\u003e\n  \u003c/thead\u003e\n  \u003ctbody\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e1 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eYear \u003c/td\u003e\n      \u003ctd\u003e1987-2008\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e2 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eMonth \u003c/td\u003e\n      \u003ctd\u003e1-12\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e3 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDayofMonth \u003c/td\u003e\n      \u003ctd\u003e1-31\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e4 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDayOfWeek \u003c/td\u003e\n      \u003ctd\u003e1 (Monday) - 7 (Sunday)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e5 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDepTime \u003c/td\u003e\n      \u003ctd\u003eactual departure time (local, hhmm)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e6 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eCRSDepTime \u003c/td\u003e\n      \u003ctd\u003escheduled departure time (local, hhmm)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e7 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eArrTime \u003c/td\u003e\n      \u003ctd\u003eactual arrival time (local, hhmm)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e8 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eCRSArrTime \u003c/td\u003e\n      \u003ctd\u003escheduled arrival time (local, hhmm)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e9 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eUniqueCarrier \u003c/td\u003e\n      \u003ctd\u003eunique carrier code\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e10 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eFlightNum \u003c/td\u003e\n      \u003ctd\u003eflight number\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e11 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eTailNum \u003c/td\u003e\n      \u003ctd\u003eplane tail number\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e12 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eActualElapsedTime \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e13 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eCRSElapsedTime \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e14 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eAirTime \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e15 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eArrDelay \u003c/td\u003e\n      \u003ctd\u003earrival delay, in minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e16 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDepDelay \u003c/td\u003e\n      \u003ctd\u003edeparture delay, in minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e17 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eOrigin \u003c/td\u003e\n      \u003ctd\u003eorigin IATA airport code\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e18 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDest \u003c/td\u003e\n      \u003ctd\u003edestination IATA airport code\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e19 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eDistance \u003c/td\u003e\n      \u003ctd\u003ein miles\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e20 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eTaxiIn \u003c/td\u003e\n      \u003ctd\u003etaxi in time, in minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e21 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eTaxiOut \u003c/td\u003e\n      \u003ctd\u003etaxi out time in minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e22 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eCancelled \u003c/td\u003e\n      \u003ctd\u003ewas the flight cancelled?\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e23 \u003c/td\u003e\n      \u003ctd\u003e \u003c/td\u003e\n      \u003ctd\u003eCancellationCode \u003c/td\u003e\n      \u003ctd\u003ereason for cancellation (A \u003d carrier, B \u003d weather, C \u003d NAS, D \u003d security)\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e24 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eDiverted \u003c/td\u003e\n      \u003ctd\u003e1 \u003d yes, 0 \u003d no\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e25 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eCarrierDelay \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e26 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eWeatherDelay \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e27 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eNASDelay \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e28 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eSecurityDelay \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n    \u003ctr\u003e\n      \u003ctd\u003e29 \u003c/td\u003e\n      \u003ctd\u003ex \u003c/td\u003e\n      \u003ctd\u003eLateAircraftDelay \u003c/td\u003e\n      \u003ctd\u003ein minutes\u003c/td\u003e\n    \u003c/tr\u003e\n  \u003c/tbody\u003e\n\u003c/table\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834871463_153520928",
+      "id": "20190606-152751_1952919899",
+      "dateCreated": "Jun 6, 2019 3:27:51 PM",
+      "dateStarted": "Jun 6, 2019 4:00:36 PM",
+      "dateFinished": "Jun 6, 2019 4:00:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Loading data from CSV",
+      "text": "import org.apache.spark._\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder}\nimport org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}\nimport org.apache.spark.ml.evaluation.{RegressionEvaluator}\nimport org.apache.spark.ml.regression.{LinearRegression, RandomForestRegressor, GBTRegressionModel, GBTRegressor}\nimport org.apache.spark.ml.Pipeline\nimport org.apache.spark.mllib.evaluation.RegressionMetrics\nimport org.apache.spark.sql.functions.col\nimport org.apache.spark.sql.types._\nimport scala.io._\n\nval dataPath \u003d \"/usr/zeppelin/notebook/dataset/2008-sample.csv\"\n\nval rawData \u003d sqlContext.read.format(\"com.databricks.spark.csv\")\n            .option(\"header\", \"true\")\n            .option(\"inferSchema\", \"true\")\n            .load(dataPath)\n            .withColumn(\"DelayOutputVar\", col(\"ArrDelay\").cast(\"double\"))\n            .withColumn(\"DepDelayDouble\", col(\"DepDelay\").cast(\"double\"))\n            .withColumn(\"TaxiOutDouble\", col(\"TaxiOut\").cast(\"double\"))\n            .cache()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:53:35 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark._\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder}\nimport org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}\nimport org.apache.spark.ml.evaluation.RegressionEvaluator\nimport org.apache.spark.ml.regression.{LinearRegression, RandomForestRegressor, GBTRegressionModel, GBTRegressor}\nimport org.apache.spark.ml.Pipeline\nimport org.apache.spark.mllib.evaluation.RegressionMetrics\nimport org.apache.spark.sql.functions.col\nimport org.apache.spark.sql.types._\nimport scala.io._\ndataPath: String \u003d /usr/zeppelin/notebook/2008-sample.csv\nrawData: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [Year: int, Month: int ... 30 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559814114286_1338979236",
+      "id": "20190606-094154_1661056732",
+      "dateCreated": "Jun 6, 2019 9:41:54 AM",
+      "dateStarted": "Jun 6, 2019 3:03:37 PM",
+      "dateFinished": "Jun 6, 2019 3:03:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "rawData.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:22:55 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- Year: integer (nullable \u003d true)\n |-- Month: integer (nullable \u003d true)\n |-- DayofMonth: integer (nullable \u003d true)\n |-- DayOfWeek: integer (nullable \u003d true)\n |-- DepTime: string (nullable \u003d true)\n |-- CRSDepTime: integer (nullable \u003d true)\n |-- ArrTime: string (nullable \u003d true)\n |-- CRSArrTime: integer (nullable \u003d true)\n |-- UniqueCarrier: string (nullable \u003d true)\n |-- FlightNum: integer (nullable \u003d true)\n |-- TailNum: string (nullable \u003d true)\n |-- ActualElapsedTime: string (nullable \u003d true)\n |-- CRSElapsedTime: integer (nullable \u003d true)\n |-- AirTime: string (nullable \u003d true)\n |-- ArrDelay: string (nullable \u003d true)\n |-- DepDelay: string (nullable \u003d true)\n |-- Origin: string (nullable \u003d true)\n |-- Dest: string (nullable \u003d true)\n |-- Distance: integer (nullable \u003d true)\n |-- TaxiIn: string (nullable \u003d true)\n |-- TaxiOut: string (nullable \u003d true)\n |-- Cancelled: integer (nullable \u003d true)\n |-- CancellationCode: string (nullable \u003d true)\n |-- Diverted: integer (nullable \u003d true)\n |-- CarrierDelay: string (nullable \u003d true)\n |-- WeatherDelay: string (nullable \u003d true)\n |-- NASDelay: string (nullable \u003d true)\n |-- SecurityDelay: string (nullable \u003d true)\n |-- LateAircraftDelay: string (nullable \u003d true)\n |-- DelayOutputVar: double (nullable \u003d true)\n |-- DepDelayDouble: double (nullable \u003d true)\n |-- TaxiOutDouble: double (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559833699076_1996193446",
+      "id": "20190606-150819_308895603",
+      "dateCreated": "Jun 6, 2019 3:08:19 PM",
+      "dateStarted": "Jun 6, 2019 3:22:55 PM",
+      "dateFinished": "Jun 6, 2019 3:22:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Remove unnecessary data",
+      "text": "val data2 \u003d rawData\n                .drop(\"ActualElapsedTime\") // Forbidden\n                .drop(\"ArrTime\") // Forbidden\n                .drop(\"AirTime\") // Forbidden\n                .drop(\"TaxiIn\") // Forbidden\n                .drop(\"Diverted\") // Forbidden\n                .drop(\"CarrierDelay\") // Forbidden\n                .drop(\"WeatherDelay\") // Forbidden\n                .drop(\"NASDelay\") // Forbidden\n                .drop(\"SecurityDelay\") // Forbidden\n                .drop(\"LateAircraftDelay\") // Forbidden\n                .drop(\"DepDelay\") // Casted to double in a new variable called DepDelayDouble\n                .drop(\"TaxiOut\") // Casted to double in a new variable called TaxiOutDouble\n                .drop(\"UniqueCarrier\") // Always the same value // Remove correlated variables\n                .drop(\"CancellationCode\") // Cancelled flights don\u0027t count\n                .drop(\"DepTime\") // Highly correlated to CRSDeptime\n                .drop(\"CRSArrTime\") // Highly correlated to CRSDeptime\n                .drop(\"CRSElapsedTime\") // Highly correlated to Distance\n                .drop(\"Distance\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"FlightNum\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"CRSDepTime\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"Year\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"Month\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"DayofMonth\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"DayOfWeek\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"TailNum\")\n\n// remove cancelled flights\nval data \u003d data2.filter(\"DelayOutputVar is not null\")",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:03:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "data2: org.apache.spark.sql.DataFrame \u003d [ArrDelay: string, Origin: string ... 5 more fields]\ndata: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559820148687_2054422769",
+      "id": "20190606-112228_1826810202",
+      "dateCreated": "Jun 6, 2019 11:22:28 AM",
+      "dateStarted": "Jun 6, 2019 3:03:45 PM",
+      "dateFinished": "Jun 6, 2019 3:03:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "data.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:04:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- ArrDelay: string (nullable \u003d true)\n |-- Origin: string (nullable \u003d true)\n |-- Dest: string (nullable \u003d true)\n |-- Cancelled: integer (nullable \u003d true)\n |-- DelayOutputVar: double (nullable \u003d true)\n |-- DepDelayDouble: double (nullable \u003d true)\n |-- TaxiOutDouble: double (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559833487503_-2131498379",
+      "id": "20190606-150447_739845022",
+      "dateCreated": "Jun 6, 2019 3:04:47 PM",
+      "dateStarted": "Jun 6, 2019 3:04:53 PM",
+      "dateFinished": "Jun 6, 2019 3:04:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Input vector",
+      "text": "val assembler \u003d new VectorAssembler()\n                .setInputCols(Array(\"DepDelayDouble\", \"TaxiOutDouble\"))\n                .setOutputCol(\"features\")\n            ",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:29:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "assembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_83c42eeb2635\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559832222309_-1923941934",
+      "id": "20190606-144342_1199565429",
+      "dateCreated": "Jun 6, 2019 2:43:42 PM",
+      "dateStarted": "Jun 6, 2019 3:06:17 PM",
+      "dateFinished": "Jun 6, 2019 3:06:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Set Label and Feature for LinearRegression",
+      "text": "val lr \u003d new LinearRegression()\n  .setLabelCol(\"DelayOutputVar\")\n  .setFeaturesCol(\"features\")\n  \nval paramGrid \u003d new ParamGridBuilder()\n  .addGrid(lr.regParam, Array(0.1, 0.01))\n  .addGrid(lr.fitIntercept)\n  .addGrid(lr.elasticNetParam, Array(0.0, 1.0))\n  .build()\n  \nval steps:Array[org.apache.spark.ml.PipelineStage] \u003d Array(assembler, lr)\nval pipeline \u003d new Pipeline().setStages(steps)",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 4:10:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "lr: org.apache.spark.ml.regression.LinearRegression \u003d linReg_0e70c33999f4\nparamGrid: Array[org.apache.spark.ml.param.ParamMap] \u003d\nArray({\n\tlinReg_0e70c33999f4-elasticNetParam: 0.0,\n\tlinReg_0e70c33999f4-fitIntercept: true,\n\tlinReg_0e70c33999f4-regParam: 0.1\n}, {\n\tlinReg_0e70c33999f4-elasticNetParam: 0.0,\n\tlinReg_0e70c33999f4-fitIntercept: true,\n\tlinReg_0e70c33999f4-regParam: 0.001\n}, {\n\tlinReg_0e70c33999f4-elasticNetParam: 0.0,\n\tlinReg_0e70c33999f4-fitIntercept: false,\n\tlinReg_0e70c33999f4-regParam: 0.1\n}, {\n\tlinReg_0e70c33999f4-elasticNetParam: 0.0,\n\tlinReg_0e70c33999f4-fitIntercept: false,\n\tlinReg_0e70c33999f4-regParam: 0.001\n}, {\n\tlinReg_0e70c33999f4-elasticNetParam: 1.0,\n\tlinReg_0e70c33999f4-fitIntercept: true,\n\tlinReg_0e70c33999f4-regParam: 0.1\n}, {\n\tlinReg_0e70c33999f4-elasticNetParam: 1.0,\n\tlinReg_0e70c33999f4-fitIntercept: true,\n\tlinReg_0e70c33999f4-reg...steps: Array[org.apache.spark.ml.PipelineStage] \u003d Array(vecAssembler_83c42eeb2635, linReg_0e70c33999f4)\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_91931118ee5b\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559833371094_560034715",
+      "id": "20190606-150251_2132921487",
+      "dateCreated": "Jun 6, 2019 3:02:51 PM",
+      "dateStarted": "Jun 6, 2019 4:09:25 PM",
+      "dateFinished": "Jun 6, 2019 4:09:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Validation data",
+      "text": "val tvs \u003d new TrainValidationSplit()\n  .setEstimator(pipeline)\n  .setEvaluator(new RegressionEvaluator().setLabelCol(\"DelayOutputVar\"))\n  .setEstimatorParamMaps(paramGrid)\n  .setTrainRatio(0.7)\n\nval Array(training, test) \u003d data.randomSplit(Array(0.70, 0.30), seed \u003d 12345)\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 4:09:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "tvs: org.apache.spark.ml.tuning.TrainValidationSplit \u003d tvs_41195d54e0d8\ntraining: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\ntest: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559833991045_285982940",
+      "id": "20190606-151311_856558491",
+      "dateCreated": "Jun 6, 2019 3:13:11 PM",
+      "dateStarted": "Jun 6, 2019 4:09:31 PM",
+      "dateFinished": "Jun 6, 2019 4:09:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Training",
+      "text": "val model \u003d tvs.fit(training)",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 4:09:34 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "model: org.apache.spark.ml.tuning.TrainValidationSplitModel \u003d tvs_41195d54e0d8\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834127971_-651049197",
+      "id": "20190606-151527_336919147",
+      "dateCreated": "Jun 6, 2019 3:15:27 PM",
+      "dateStarted": "Jun 6, 2019 4:09:34 PM",
+      "dateFinished": "Jun 6, 2019 4:09:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "test.show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:18:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+------+----+---------+--------------+--------------+-------------+\n|ArrDelay|Origin|Dest|Cancelled|DelayOutputVar|DepDelayDouble|TaxiOutDouble|\n+--------+------+----+---------+--------------+--------------+-------------+\n|      -1|   LAX| AUS|        0|          -1.0|           9.0|          7.0|\n|      -1|   LIT| DAL|        0|          -1.0|           1.0|          8.0|\n|      -1|   MCI| MDW|        0|          -1.0|           1.0|         11.0|\n|      -1|   MCI| OKC|        0|          -1.0|           1.0|         15.0|\n|      -1|   MDW| FLL|        0|          -1.0|          14.0|          7.0|\n|      -1|   MHT| BWI|        0|          -1.0|          16.0|         11.0|\n|      -1|   MHT| MDW|        0|          -1.0|          14.0|         11.0|\n|     -10|   LAX| MDW|        0|         -10.0|          15.0|          5.0|\n|     -10|   LAX| SJC|        0|         -10.0|          -2.0|          6.0|\n|     -11|   LAX| MDW|        0|         -11.0|           5.0|          9.0|\n|     -12|   ISP| TPA|        0|         -12.0|          13.0|          8.0|\n|     -12|   LAS| MDW|        0|         -12.0|          -1.0|         16.0|\n|     -13|   MAF| AUS|        0|         -13.0|          -5.0|          7.0|\n|     -13|   MDW| LAX|        0|         -13.0|           4.0|          8.0|\n|     -14|   LAX| MCI|        0|         -14.0|          17.0|          5.0|\n|     -16|   LAS| SLC|        0|         -16.0|          -4.0|         10.0|\n|     -17|   LAS| MDW|        0|         -17.0|           2.0|         10.0|\n|     -18|   IND| LAS|        0|         -18.0|          -1.0|          7.0|\n|      -2|   JAN| HOU|        0|          -2.0|           5.0|          7.0|\n|      -2|   JAX| FLL|        0|          -2.0|           1.0|          8.0|\n+--------+------+----+---------+--------------+--------------+-------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834272486_-786097706",
+      "id": "20190606-151752_1013175916",
+      "dateCreated": "Jun 6, 2019 3:17:52 PM",
+      "dateStarted": "Jun 6, 2019 3:18:24 PM",
+      "dateFinished": "Jun 6, 2019 3:18:24 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Testing",
+      "text": "val holdout \u003d model.transform(test).select(\"prediction\", \"DelayOutputVar\")\n\nval rm \u003d new RegressionMetrics(holdout.rdd.map(x \u003d\u003e\n  (x(0).asInstanceOf[Double], x(1).asInstanceOf[Double])))\n\nprintln(\"sqrt(MSE): \" + Math.sqrt(rm.meanSquaredError))\nprintln(\"mean absolute error: \" + \trm.meanAbsoluteError)\nprintln(\"R Squared: \" + rm.r2)                         \nprintln(\"Explained Variance: \" + rm.explainedVariance + \"\\n\")",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 4:09:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "holdout: org.apache.spark.sql.DataFrame \u003d [prediction: double, DelayOutputVar: double]\nrm: org.apache.spark.mllib.evaluation.RegressionMetrics \u003d org.apache.spark.mllib.evaluation.RegressionMetrics@1566be69\nsqrt(MSE): 8.840151319395503\nmean absolute error: 6.432521636850314\nR Squared: 0.9398725467422797\nExplained Variance: 1239.9374867743036\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834215140_911136962",
+      "id": "20190606-151655_1203359554",
+      "dateCreated": "Jun 6, 2019 3:16:55 PM",
+      "dateStarted": "Jun 6, 2019 4:09:44 PM",
+      "dateFinished": "Jun 6, 2019 4:09:46 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "model.transform(test).show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 6, 2019 3:20:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------+------+----+---------+--------------+--------------+-------------+-----------+--------------------+\n|ArrDelay|Origin|Dest|Cancelled|DelayOutputVar|DepDelayDouble|TaxiOutDouble|   features|          prediction|\n+--------+------+----+---------+--------------+--------------+-------------+-----------+--------------------+\n|      -1|   LAX| AUS|        0|          -1.0|           9.0|          7.0|  [9.0,7.0]|  0.7979536503487186|\n|      -1|   LIT| DAL|        0|          -1.0|           1.0|          8.0|  [1.0,8.0]|  -6.171066915131722|\n|      -1|   MCI| MDW|        0|          -1.0|           1.0|         11.0| [1.0,11.0]| -3.6744503956644365|\n|      -1|   MCI| OKC|        0|          -1.0|           1.0|         15.0| [1.0,15.0]|-0.34562836970805577|\n|      -1|   MDW| FLL|        0|          -1.0|          14.0|          7.0| [14.0,7.0]|    5.67371994532968|\n|      -1|   MHT| BWI|        0|          -1.0|          16.0|         11.0|[16.0,11.0]|  10.952848489278445|\n|      -1|   MHT| MDW|        0|          -1.0|          14.0|         11.0|[14.0,11.0]|    9.00254197128606|\n|     -10|   LAX| MDW|        0|         -10.0|          15.0|          5.0| [15.0,5.0]|   4.984462191347681|\n|     -10|   LAX| SJC|        0|         -10.0|          -2.0|          6.0| [-2.0,6.0]| -10.760937705098488|\n|     -11|   LAX| MDW|        0|         -11.0|           5.0|          9.0|  [5.0,9.0]| -1.4382483726578599|\n|     -12|   ISP| TPA|        0|         -12.0|          13.0|          8.0| [13.0,8.0]|   5.530772192822582|\n|     -12|   LAS| MDW|        0|         -12.0|          -1.0|         16.0|[-1.0,16.0]|  -1.463729381211344|\n|     -13|   MAF| AUS|        0|         -13.0|          -5.0|          7.0| [-5.0,7.0]|  -12.85419197559797|\n|     -13|   MDW| LAX|        0|         -13.0|           4.0|          8.0|  [4.0,8.0]| -3.2456071381431464|\n|     -14|   LAX| MCI|        0|         -14.0|          17.0|          5.0| [17.0,5.0]|   6.934768709340066|\n|     -16|   LAS| SLC|        0|         -16.0|          -4.0|         10.0|[-4.0,10.0]|  -9.382422197134492|\n|     -17|   LAS| MDW|        0|         -17.0|           2.0|         10.0| [2.0,10.0]| -3.5315026431573386|\n|     -18|   IND| LAS|        0|         -18.0|          -1.0|          7.0| [-1.0,7.0]|  -8.953578939613202|\n|      -2|   JAN| HOU|        0|          -2.0|           5.0|          7.0|  [5.0,7.0]| -3.1026593856360485|\n|      -2|   JAX| FLL|        0|          -2.0|           1.0|          8.0|  [1.0,8.0]|  -6.171066915131722|\n+--------+------+----+---------+--------------+--------------+-------------+-----------+--------------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834247521_1435980434",
+      "id": "20190606-151727_1702510550",
+      "dateCreated": "Jun 6, 2019 3:17:27 PM",
+      "dateStarted": "Jun 6, 2019 3:20:20 PM",
+      "dateFinished": "Jun 6, 2019 3:20:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559834359875_-824649217",
+      "id": "20190606-151919_812769074",
+      "dateCreated": "Jun 6, 2019 3:19:19 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-16/Flight-delay",
+  "id": "2ED7YNWBY",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

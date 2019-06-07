@@ -1,0 +1,275 @@
+{
+  "paragraphs": [
+    {
+      "title": "Loading text files",
+      "text": "%pyspark\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\ninput.first()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:29:35 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u0027[![buildstatus](https://travis-ci.org/holdenk/learning-spark-examples.svg?branch\u003dmaster)](https://travis-ci.org/holdenk/learning-spark-examples)\u0027\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034066_-611957372",
+      "id": "20190519-043619_1978877403",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:29:35 AM",
+      "dateFinished": "Jun 7, 2019 3:29:37 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "File saving",
+      "text": "%pyspark\ninput.saveAsTextFile(\u0027file:///usr/zeppelin/notebook/dataset/save\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:30:34 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034067_-612342121",
+      "id": "20190519-063339_613615193",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:30:34 AM",
+      "dateFinished": "Jun 7, 2019 3:30:35 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Loading JSON",
+      "text": "%pyspark\nimport json\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/testweet.json\")\ndata \u003d input.map(lambda x: json.loads(x))\ndata.first()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:31:00 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\u0027hashtagEntities\u0027: [], \u0027isTruncated\u0027: False, \u0027urlEntities\u0027: [], \u0027source\u0027: \u0027\u003ca href\u003d\"http://twitter.com\" rel\u003d\"nofollow\"\u003eTwitter Web Client\u003c/a\u003e\u0027, \u0027createdAt\u0027: \u0027Nov 4, 2014 4:56:59 PM\u0027, \u0027userMentionEntities\u0027: [], \u0027id\u0027: 529799371026485248, \u0027isFavorited\u0027: False, \u0027inReplyToStatusId\u0027: -1, \u0027user\u0027: {\u0027isContributorsEnabled\u0027: False, \u0027showAllInlineMedia\u0027: False, \u0027name\u0027: \u0027Holden Karau\u0027, \u0027screenName\u0027: \u0027holdenkarau\u0027, \u0027descriptionURLEntities\u0027: [], \u0027profileImageUrlHttps\u0027: \u0027https://pbs.twimg.com/profile_images/3005696115/2036374bbadbed85249cdd50aac6e170_normal.jpeg\u0027, \u0027isGeoEnabled\u0027: True, \u0027translator\u0027: False, \u0027profileBannerImageUrl\u0027: \u0027\u0027, \u0027isFollowRequestSent\u0027: False, \u0027profileBackgroundColor\u0027: \u0027C0DEED\u0027, \u0027isProtected\u0027: False, \u0027profileBackgroundImageUrl\u0027: \u0027\u0027, \u0027profileUseBackgroundImage\u0027: True, \u0027location\u0027: \u0027\u0027, \u0027utcOffset\u0027: -3, \u0027id\u0027: 15594928, \u0027profileSidebarBorderColor\u0027: \u0027FFFFFF\u0027, \u0027friendsCount\u0027: 600, \u0027description\u0027: \u0027\u0027, \u0027followersCount\u0027: 1231, \u0027createdAt\u0027: \u0027Aug 5, 2011 9:42:44 AM\u0027, \u0027profileBackgroundImageUrlHttps\u0027: \u0027\u0027, \u0027lang\u0027: \u0027en\u0027, \u0027isVerified\u0027: False, \u0027profileBackgroundTiled\u0027: True, \u0027profileTextColor\u0027: \u0027333333\u0027, \u0027favouritesCount\u0027: 1095, \u0027profileImageUrl\u0027: \u0027http://pbs.twimg.com/profile_images/3005696115/2036374bbadbed85249cdd50aac6e170_normal.jpeg\u0027, \u0027listedCount\u0027: 0, \u0027profileLinkColor\u0027: \u00270084B4\u0027, \u0027statusesCount\u0027: 6234, \u0027profileSidebarFillColor\u0027: \u0027DDEEF6\u0027}, \u0027inReplyToUserId\u0027: -1, \u0027isPossiblySensitive\u0027: False, \u0027text\u0027: \u0027Adventures With Coffee, Code, and Writing.\u0027, \u0027currentUserRetweetId\u0027: -1, \u0027mediaEntities\u0027: [], \u0027contributorsIDs\u0027: [], \u0027retweetCount\u0027: 0}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034067_-612342121",
+      "id": "20190519-045600_1979822191",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:31:00 AM",
+      "dateFinished": "Jun 7, 2019 3:31:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Loading CVS and inspecting",
+      "text": "%pyspark\ndf \u003d sqlContext.read.load(\u0027file:///usr/zeppelin/notebook/dataset/favourite_animals.csv\u0027, \n                          format\u003d\u0027com.databricks.spark.csv\u0027, \n                          header\u003d\u0027false\u0027, \n                          inferSchema\u003d\u0027true\u0027)\ndf.show()\ndf.count()\ndf.printSchema()\ndf.first()\ndf.collect()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:31:21 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------+--------+\n|      _c0|     _c1|\n+---------+--------+\n|   holden|   panda|\n|notholden|notpanda|\n|    spark|    bear|\n+---------+--------+\n\nroot\n |-- _c0: string (nullable \u003d true)\n |-- _c1: string (nullable \u003d true)\n\n[Row(_c0\u003d\u0027holden\u0027, _c1\u003d\u0027panda\u0027), Row(_c0\u003d\u0027notholden\u0027, _c1\u003d\u0027notpanda\u0027), Row(_c0\u003d\u0027spark\u0027, _c1\u003d\u0027bear\u0027)]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034068_-614265866",
+      "id": "20190519-060539_1637710538",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:31:21 AM",
+      "dateFinished": "Jun 7, 2019 3:31:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Spark SQL",
+      "text": "%pyspark\ntweets \u003d sqlContext.read.json(\"file:///usr/zeppelin/notebook/dataset/testweet.json\")\ntweets.registerTempTable(\"tweets\")\nresults \u003d sqlContext.sql(\"SELECT user.name, text FROM tweets\")\nresults.show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:31:31 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+------------+--------------------+\n|        name|                text|\n+------------+--------------------+\n|Holden Karau|Adventures With C...|\n+------------+--------------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034069_-614650615",
+      "id": "20190519-064143_1955968305",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:31:31 AM",
+      "dateFinished": "Jun 7, 2019 3:31:32 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Shell command",
+      "text": "%sh\npwd\nls -la /usr/zeppelin/notebook/dataset",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:31:40 AM",
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "/usr/zeppelin\ntotal 4288\ndrwxr-xr-x  9 root root     288 Jun  7 03:31 .\ndrwxr-xr-x 20 root root     640 Jun  7 03:30 ..\n-rw-r--r--  1 root root   95694 Jun  6 11:40 2008-small.csv\n-rw-r--r--  1 root root    7080 Jun  7 02:50 2015-summary.csv\n-rw-r--r--  1 root root 3974305 Jun  7 00:57 adult.data\n-rwxr-xr-x  1 root root      42 Jan 28  2016 favourite_animals.csv\n-rwxr-xr-x  1 root root    1622 Jan 28  2016 README.md\ndrwxr-xr-x  8 root root     256 Jun  7 03:30 save\n-rwxr-xr-x  1 root root    1493 Jan 28  2016 testweet.json\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034069_-614650615",
+      "id": "20190519-044045_15350527",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "dateStarted": "Jun 7, 2019 3:31:40 AM",
+      "dateFinished": "Jun 7, 2019 3:31:42 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "Jun 7, 2019 3:27:14 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878034069_-614650615",
+      "id": "20190519-044439_2103385607",
+      "dateCreated": "Jun 7, 2019 3:27:14 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-08/Loading-data",
+  "id": "2EBXDBAKB",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -1,0 +1,81 @@
+{
+  "paragraphs": [
+    {
+      "title": "Input is a text file",
+      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/learning-spark/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027 \u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
+      "dateUpdated": "Jun 7, 2019 3:26:32 AM",
+      "config": {
+        "lineNumbers": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": ": 11\nSpark](http://akamaicovers.oreilly.com/images/0636920028512/cat.gif)](http://www.jdoqocy.com/click-7645222-11260198?url\u003dhttp%3A%2F%2Fshop.oreilly.com%2Fproduct%2F0636920028512.do%3Fcmp%3Daf-strata-books-videos-product_cj_9781449358600_%2525zp\u0026cjsku\u003d0636920028512): 1\ncom.oreilly.learningsparkexamples.[lang].[example]: 1\n[![buildstatus](https://travis-ci.org/holdenk/learning-spark-examples.svg?branch\u003dmaster)](https://travis-ci.org/holdenk/learning-spark-examples): 1\n[![Learning: 1\nPython: 2\nof: 4\nImap: 1\ninstall: 2\nassembly: 2\ndebian: 1\nmay: 1\nscala: 1\njust: 1\n$SPARK_HOME;: 1\nmvn: 1\ncd: 1\nbook.: 1\n1.3: 2\nan: 1\n1.7: 1\nhave: 3\nThe: 1\n\"Learning: 1\n\u003d\u003d\u003d: 2\njava: 1\nSubmit: 1\nChapterSixExample: 1\nexamples: 4\nsudo: 1\nThese: 2\nscript: 1\nversions: 2\nin: 2\nspark-submit: 1\njar: 1\nProtobuf: 1\n../learning-spark-examples/target/scala-2.10/learning-spark-examples-assembly-0.0.1.jar: 1\nprotobuf-compiler: 1\njob: 1\nR: 1\nSpark\".: 1\nagainst: 1\nlong: 1\nSpark: 5\n*: 6\n\u003d\u003d: 1\nthan: 1\nas: 1\ndifferent: 1\nCRAN: 1\nare: 1\nstand: 1\nadded: 1\nrun: 3\nhigher: 1\nyour: 1\ncan: 2\nbuild: 2\npackage: 2\n-: 2\nurllib3: 1\nfor: 4\nto: 1\nwith: 4\nslightly: 1\nupdated: 1\ncopy: 1\nthe: 10\nspark: 1\nso: 1\nWe: 1\ndirectory.: 1\nall: 1\nExamples: 2\n./bin/pyspark: 1\ndependencies: 2\nyou: 1\nrunning: 1\nrequired: 1\nfiles.: 1\nscala-lang.org: 1\nScala: 1\nand: 3\nor: 2\ncreate: 1\nmini-complete-example: 1\neither: 1\n./src/python/[example]: 1\na: 3\nLearning: 2\ncompiler: 1\ncode: 1\nminimal: 1\nalso: 2\nnumber: 1\n./bin/spark-submit: 1\nRequirements: 1\nthey: 1\nOR: 1\nFrom: 1\nsmall: 1\n2.10.3: 1\nYou: 1\nrequire: 2\nsuch: 1\nalone: 1\nbeen: 1\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d: 1\nOn: 1\nlibraries: 1\nbe: 1\nexample: 1\n./sbt/sbt: 1\nJDK: 1\nfile: 1\napt-get: 1\n--class: 1\n\u0026: 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559877992180_-1244945934",
+      "id": "20190519-071415_1962473504",
+      "dateCreated": "Jun 7, 2019 3:26:32 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "Jun 7, 2019 3:26:32 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559877992181_-1245330683",
+      "id": "20190519-071929_401743350",
+      "dateCreated": "Jun 7, 2019 3:26:32 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-09/Word-count",
+  "id": "2ECFKUA4T",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

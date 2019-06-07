@@ -1,0 +1,304 @@
+{
+  "paragraphs": [
+    {
+      "title": "Load Data",
+      "text": "%sql\nDROP TABLE IF EXISTS adult",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:57:14 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559869320879_81118322",
+      "id": "20190607-010200_124388389",
+      "dateCreated": "Jun 7, 2019 1:02:00 AM",
+      "dateStarted": "Jun 7, 2019 2:57:14 AM",
+      "dateFinished": "Jun 7, 2019 2:57:14 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql \nCREATE TABLE adult (\n  age DOUBLE,\n  workclass STRING,\n  fnlwgt DOUBLE,\n  education STRING,\n  education_num DOUBLE,\n  marital_status STRING,\n  occupation STRING,\n  relationship STRING,\n  race STRING,\n  sex STRING,\n  capital_gain DOUBLE,\n  capital_loss DOUBLE,\n  hours_per_week DOUBLE,\n  native_country STRING,\n  income STRING)\nUSING CSV\nOPTIONS (path \"/usr/zeppelin/notebook/dataset/adult.data\", header \"true\")",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:57:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559837854181_-458791360",
+      "id": "20190606-161734_49122392",
+      "dateCreated": "Jun 6, 2019 4:17:34 PM",
+      "dateStarted": "Jun 7, 2019 2:57:19 AM",
+      "dateFinished": "Jun 7, 2019 2:57:19 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndataset \u003d spark.table(\"adult\")\ncols \u003d dataset.columns",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:57:25 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559869187453_485722567",
+      "id": "20190607-005947_287688399",
+      "dateCreated": "Jun 7, 2019 12:59:47 AM",
+      "dateStarted": "Jun 7, 2019 2:57:25 AM",
+      "dateFinished": "Jun 7, 2019 2:57:25 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Preprocess Data",
+      "text": "%pyspark\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler\ncategoricalColumns \u003d [\"workclass\", \"education\", \"marital_status\", \"occupation\", \"relationship\", \"race\", \"sex\", \"native_country\"]\nstages \u003d [] # stages in our Pipeline\nfor categoricalCol in categoricalColumns:\n    # Category Indexing with StringIndexer\n    stringIndexer \u003d StringIndexer(inputCol\u003dcategoricalCol, outputCol\u003dcategoricalCol + \"Index\")\n    # Use OneHotEncoder to convert categorical variables into binary SparseVectors\n    encoder \u003d OneHotEncoder(inputCol\u003dcategoricalCol + \"Index\", outputCol\u003dcategoricalCol + \"classVec\")\n    # Add stages.  These are not run here, but will run all at once later on.\n    stages +\u003d [stringIndexer, encoder]\n    \n# Convert label into label indices using the StringIndexer\nlabel_stringIdx \u003d StringIndexer(inputCol\u003d\"income\", outputCol\u003d\"label\")\nstages +\u003d [label_stringIdx]\n\n# Transform all features into a vector using VectorAssembler\nnumericCols \u003d [\"age\", \"fnlwgt\", \"education_num\", \"capital_gain\", \"capital_loss\", \"hours_per_week\"]\nassemblerInputs \u003d [c + \"classVec\" for c in categoricalColumns] + numericCols\nassembler \u003d VectorAssembler(inputCols\u003dassemblerInputs, outputCol\u003d\"features\")\nstages +\u003d [assembler]",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:57:26 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559869375394_-1907371263",
+      "id": "20190607-010255_1654554349",
+      "dateCreated": "Jun 7, 2019 1:02:55 AM",
+      "dateStarted": "Jun 7, 2019 2:57:26 AM",
+      "dateFinished": "Jun 7, 2019 2:57:27 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Split training and testing data",
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n  \npartialPipeline \u003d Pipeline().setStages(stages)\npipelineModel \u003d partialPipeline.fit(dataset)\npreppedDataDF \u003d pipelineModel.transform(dataset)\n\n# Fit model to prepped data\nlrModel \u003d LogisticRegression().fit(preppedDataDF)\n\n# Keep relevant columns\nselectedcols \u003d [\"label\", \"features\"] + cols\ndataset \u003d preppedDataDF.select(selectedcols)\n\n(trainingData, testData) \u003d dataset.randomSplit([0.7, 0.3], seed\u003d100)\nprint(trainingData.count())\nprint(testData.count())",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:58:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "22837\n9723\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559869398202_1340525709",
+      "id": "20190607-010318_1026877646",
+      "dateCreated": "Jun 7, 2019 1:03:18 AM",
+      "dateStarted": "Jun 7, 2019 2:57:29 AM",
+      "dateFinished": "Jun 7, 2019 2:57:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Train using Logistic Regression",
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\n# Create initial LogisticRegression model\nlr \u003d LogisticRegression(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxIter\u003d10)\n\n# Train model with Training Data\nlrModel \u003d lr.fit(trainingData)",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:58:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559870276441_1872708938",
+      "id": "20190607-011756_14556370",
+      "dateCreated": "Jun 7, 2019 1:17:56 AM",
+      "dateStarted": "Jun 7, 2019 2:58:13 AM",
+      "dateFinished": "Jun 7, 2019 2:58:15 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Prediction",
+      "text": "%pyspark\n# Make predictions on test data using the transform() method.\n# LogisticRegression.transform() will only use the \u0027features\u0027 column.\npredictions \u003d lrModel.transform(testData)\nselected \u003d predictions.select(\"label\", \"prediction\", \"probability\", \"age\", \"occupation\")\nselected.show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:58:17 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----+----------+--------------------+----+---------------+\n|label|prediction|         probability| age|     occupation|\n+-----+----------+--------------------+----+---------------+\n|  0.0|       0.0|[0.68196288803808...|26.0| Prof-specialty|\n|  0.0|       0.0|[0.61546329869478...|30.0| Prof-specialty|\n|  0.0|       0.0|[0.65111207707535...|31.0| Prof-specialty|\n|  0.0|       0.0|[0.65140773341511...|32.0| Prof-specialty|\n|  0.0|       0.0|[0.61168768902559...|39.0| Prof-specialty|\n|  0.0|       0.0|[0.54438152231471...|47.0| Prof-specialty|\n|  0.0|       0.0|[0.60193837497898...|50.0| Prof-specialty|\n|  0.0|       0.0|[0.59223829880012...|51.0| Prof-specialty|\n|  0.0|       0.0|[0.58727456798096...|60.0| Prof-specialty|\n|  0.0|       0.0|[0.59701624146611...|61.0| Prof-specialty|\n|  0.0|       0.0|[0.83577176759819...|26.0| Prof-specialty|\n|  0.0|       0.0|[0.98823059099064...|20.0| Prof-specialty|\n|  0.0|       1.0|[0.41938884599645...|35.0| Prof-specialty|\n|  0.0|       0.0|[0.70990780702176...|48.0| Prof-specialty|\n|  0.0|       0.0|[0.66969238708962...|27.0| Prof-specialty|\n|  0.0|       0.0|[0.74626440599909...|20.0|   Craft-repair|\n|  0.0|       0.0|[0.65102758095463...|28.0|   Craft-repair|\n|  0.0|       0.0|[0.56074726448867...|32.0|   Craft-repair|\n|  0.0|       0.0|[0.55204347635751...|36.0|   Craft-repair|\n|  0.0|       0.0|[0.51807991919354...|46.0|   Craft-repair|\n+-----+----------+--------------------+----+---------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559871051353_-1261183056",
+      "id": "20190607-013051_728042559",
+      "dateCreated": "Jun 7, 2019 1:30:51 AM",
+      "dateStarted": "Jun 7, 2019 2:58:17 AM",
+      "dateFinished": "Jun 7, 2019 2:58:18 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Evaluation",
+      "text": "%pyspark\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator\n\n# Evaluate model\nevaluator \u003d BinaryClassificationEvaluator(rawPredictionCol\u003d\"rawPrediction\")\n\nprint(\"Test Area Under ROC: \" + str(evaluator.evaluate(predictions, {evaluator.metricName: \"areaUnderROC\"})))",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:03:16 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Test Area Under ROC: 0.9027829699452454\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559871084040_-964880430",
+      "id": "20190607-013124_155821542",
+      "dateCreated": "Jun 7, 2019 1:31:24 AM",
+      "dateStarted": "Jun 7, 2019 3:03:16 AM",
+      "dateFinished": "Jun 7, 2019 3:03:17 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 2:56:54 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559876214775_-1201396500",
+      "id": "20190607-025654_1950722358",
+      "dateCreated": "Jun 7, 2019 2:56:54 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-15/Binary-classification",
+  "id": "2ECT9FNZU",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

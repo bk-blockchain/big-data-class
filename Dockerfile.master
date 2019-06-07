@@ -5,6 +5,7 @@ RUN apt-get update
 RUN apt-get install -y vim
 
 RUN pip install pika --upgrade
+RUN pip install elasticsearch
 
 COPY wordcount.py .
 

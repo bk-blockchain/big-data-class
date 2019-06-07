@@ -1,0 +1,329 @@
+{
+  "paragraphs": [
+    {
+      "title": "Loading data from CSV",
+      "text": "%pyspark\nflightData2015 \u003d spark\\\n  .read\\\n  .option(\"inferSchema\", \"true\")\\\n  .option(\"header\", \"true\")\\\n  .csv(\"/usr/zeppelin/notebook/dataset/2015-summary.csv\")",
+      "dateUpdated": "Jun 7, 2019 2:52:55 AM",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948881_-1163692008",
+      "id": "20190519-074236_88673657",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Inspecting",
+      "text": "%md\nIf we perform the take action on the DataFrame, we will be able to see the same results that we saw before when we used the command line",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIf we perform the take action on the DataFrame, we will be able to see the same results that we saw before when we used the command line:\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948965_-1109827162",
+      "id": "20190519-080603_486601978",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "",
+      "text": "%pyspark\nflightData2015.take(3)",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Romania\u0027, count\u003d15), Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Croatia\u0027, count\u003d1), Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Ireland\u0027, count\u003d344)]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948971_-1110596659",
+      "id": "20190519-074258_1595130051",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nNothing happens to the data when we call sort because it’s just a transformation. However, we can see that Spark is building up a plan for how it will execute this across the cluster by looking at the explain plan. We can call explain on any DataFrame object to see the DataFrame’s lineage (or how Spark will execute this query):",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eNothing happens to the data when we call sort because it’s just a transformation. However, we can see that Spark is building up a plan for how it will execute this across the cluster by looking at the explain plan. We can call explain on any DataFrame object to see the DataFrame’s lineage (or how Spark will execute this query):\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948975_-1112135655",
+      "id": "20190519-075905_279128964",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import max\nflightData2015.sort(\"count\").show()\nflightData2015.select(max(\"count\")).take(1)",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+-------------------+-----+\n|   DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|\n+--------------------+-------------------+-----+\n|       United States|            Estonia|    1|\n|              Kosovo|      United States|    1|\n|              Zambia|      United States|    1|\n|       United States|   Papua New Guinea|    1|\n|               Malta|      United States|    1|\n|       United States|          Gibraltar|    1|\n|            Suriname|      United States|    1|\n|       United States|            Croatia|    1|\n|            Djibouti|      United States|    1|\n|        Burkina Faso|      United States|    1|\n|Saint Vincent and...|      United States|    1|\n|       United States|             Cyprus|    1|\n|       United States|          Singapore|    1|\n|             Moldova|      United States|    1|\n|              Cyprus|      United States|    1|\n|       United States|          Lithuania|    1|\n|       United States|           Bulgaria|    1|\n|       United States|            Georgia|    1|\n|       United States|            Bahrain|    1|\n|       Cote d\u0027Ivoire|      United States|    1|\n+--------------------+-------------------+-----+\nonly showing top 20 rows\n\n[Row(max(count)\u003d370002)]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948981_-1103671179",
+      "id": "20190519-080715_1891193452",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Spark SQL",
+      "text": "%pyspark\nflightData2015.createOrReplaceTempView(\"flight_data_2015\")",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948988_-1106364422",
+      "id": "20190519-080740_622461850",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nmaxSql \u003d spark.sql(\"\"\"\nSELECT DEST_COUNTRY_NAME, sum(count) as destination_total\nFROM flight_data_2015\nGROUP BY DEST_COUNTRY_NAME\nORDER BY sum(count) DESC\nLIMIT 5\n\"\"\")\n\nmaxSql.show()",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------------+-----------------+\n|DEST_COUNTRY_NAME|destination_total|\n+-----------------+-----------------+\n|    United States|           411352|\n|           Canada|             8399|\n|           Mexico|             7140|\n|   United Kingdom|             2025|\n|            Japan|             1548|\n+-----------------+-----------------+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948990_-1105594924",
+      "id": "20190519-080856_126343929",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nSELECT DEST_COUNTRY_NAME, sum(count) as destination_total\nFROM flight_data_2015\nGROUP BY DEST_COUNTRY_NAME\nORDER BY sum(count) DESC\nLIMIT 5",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/sql",
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true,
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DEST_COUNTRY_NAME\tdestination_total\nUnited States\t411352\nCanada\t8399\nMexico\t7140\nUnited Kingdom\t2025\nJapan\t1548\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948994_-1119445884",
+      "id": "20190519-081029_790674463",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559819948996_-1121754378",
+      "id": "20190519-081829_446259091",
+      "dateCreated": "Jun 6, 2019 11:19:08 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-09/Flight-data",
+  "id": "2EDEH8JHG",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -168,6 +168,65 @@ services:
       - "worker_01:10.0.1.11"
       - "worker_02:10.0.1.12"
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    container_name: elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    build:
+      context: .
+      dockerfile: Dockerfile.elasticsearch
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - './elasticsearch/esdata1:/usr/share/elasticsearch/data'
+    ports:
+      - 9200:9200
+    networks:
+      spark-network:
+        ipv4_address: 10.0.1.14
+
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+    container_name: elasticsearch2
+    build:
+      context: .
+      dockerfile: Dockerfile.elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - './elasticsearch/esdata2:/usr/share/elasticsearch/data'
+    networks:
+      spark-network:
+        ipv4_address: 10.0.1.15
+
+  kibana:
+    image: 'docker.elastic.co/kibana/kibana:6.3.2'
+    container_name: kibana
+    environment:
+      SERVER_NAME: kibana.local
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    ports:
+      - '5601:5601'
+    networks:
+      spark-network:
+        ipv4_address: 10.0.1.16
+
 networks:
   spark-network:
     driver: bridge

@@ -15,19 +15,9 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "/Big-data-class/Spark-cluster",
+  "name": "/Big-data-class/Module-12/Spark-cluster",
   "id": "2ED5HXUS9",
-  "angularObjects": {
-    "2EEUGYXEQ:shared_process": [],
-    "2EDNQXFJ1:shared_process": [],
-    "2EEGUTAX1:shared_process": [],
-    "2ED6PTQUM:shared_process": [],
-    "2ECEFEPZH:shared_process": [],
-    "2EBY4E4BS:shared_process": [],
-    "2EF7QJ4PS:shared_process": [],
-    "2ECSWPXVY:shared_process": [],
-    "2EERWK1UE:shared_process": []
-  },
+  "angularObjects": {},
   "config": {},
   "info": {}
 }
