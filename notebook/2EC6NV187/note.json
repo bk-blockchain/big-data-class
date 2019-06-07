@@ -1,0 +1,71 @@
+{
+  "paragraphs": [
+    {
+      "text": "# Lab exercises\n## Download source code\n`git clone https://github.com/bk-blockchain/big-data-class`\n\n## Requirement\n+ Install docker\n+ Know how to use docker composer",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:44:26 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eLab exercises\u003c/h1\u003e\n\u003ch2\u003eDownload source code\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003egit clone https://github.com/bk-blockchain/big-data-class\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003eRequirement\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003eInstall docker\u003c/li\u003e\n  \u003cli\u003eKnow how to use docker composer\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559878845361_1079261628",
+      "id": "20190607-034045_1457213931",
+      "dateCreated": "Jun 7, 2019 3:40:45 AM",
+      "dateStarted": "Jun 7, 2019 3:44:26 AM",
+      "dateFinished": "Jun 7, 2019 3:44:26 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559879059432_1417546212",
+      "id": "20190607-034419_1412781726",
+      "dateCreated": "Jun 7, 2019 3:44:19 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/README",
+  "id": "2EC6NV187",
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
