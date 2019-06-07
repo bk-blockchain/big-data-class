@@ -125,23 +125,33 @@
     {
       "text": "%python\n",
       "user": "anonymous",
-      "dateUpdated": "Jun 5, 2019 1:29:32 AM",
+      "dateUpdated": "Jun 7, 2019 6:34:11 AM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1559698172974_-2020629792",
-      "id": "20190605-012932_1586253840",
-      "dateCreated": "Jun 5, 2019 1:29:32 AM",
+      "jobName": "paragraph_1559889251554_-1599529975",
+      "id": "20190607-063411_1154651144",
+      "dateCreated": "Jun 7, 2019 6:34:11 AM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
   "name": "/Big-data-class/Module-13/RabbitMQ",
   "id": "2EDHNAF14",
-  "angularObjects": {},
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
   "config": {},
   "info": {}
 }

@@ -1,0 +1,172 @@
+{
+  "paragraphs": [
+    {
+      "text": "import csv, json\n\ncsvFilePath \u003d \"/usr/zeppelin/notebook/dataset/sensor/sample.txt\"\n\ndata \u003d []\nwith open (csvFilePath) as csvFile:\n    csvReader \u003d csv.DictReader(csvFile, delimiter\u003d\u0027\\t\u0027)\n    for csvRow in csvReader:\n        csvRow[\u0027Label\u0027] \u003d int(csvRow[\u0027Label\u0027])\n        csvRow[\u0027Mote-ID\u0027] \u003d int(csvRow[\u0027Mote-ID\u0027])\n        csvRow[\u0027Reading\u0027] \u003d int(csvRow[\u0027Reading\u0027])\n        csvRow[\u0027Tepmrature\u0027] \u003d float(csvRow[\u0027Tepmrature\u0027])\n        csvRow[\u0027Humidity\u0027] \u003d float(csvRow[\u0027Humidity\u0027])\n        data.append(csvRow)",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 7:35:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1559886783696_-1348368256",
+      "id": "20190607-055303_1006380082",
+      "dateCreated": "Jun 7, 2019 5:53:03 AM",
+      "dateStarted": "Jun 7, 2019 7:35:05 AM",
+      "dateFinished": "Jun 7, 2019 7:35:05 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "json.dumps(data[0])",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 7:35:08 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u0027{\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.97, \"Reading\": 1, \"Humidity\": 45.93}\u0027\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559887787848_-517883681",
+      "id": "20190607-060947_1388307450",
+      "dateCreated": "Jun 7, 2019 6:09:47 AM",
+      "dateStarted": "Jun 7, 2019 7:35:08 AM",
+      "dateFinished": "Jun 7, 2019 7:35:08 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "# Send a message\nimport pika\n\nconnection \u003d pika.BlockingConnection(pika.ConnectionParameters(\u0027rabbitmq\u0027))\nchannel \u003d connection.channel()\n\nchannel.queue_declare(queue\u003d\u0027sensor\u0027)\nfor item in data:\n    channel.basic_publish(exchange\u003d\u0027\u0027,\n                      routing_key\u003d\u0027sensor\u0027,\n                      body\u003djson.dumps(item))\n    print(\" [x] Sent: \", json.dumps(item))\n\nconnection.close()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 7:35:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.97, \"Reading\": 1, \"Humidity\": 45.93}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.95, \"Reading\": 2, \"Humidity\": 45.9}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.96, \"Reading\": 3, \"Humidity\": 45.9}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.95, \"Reading\": 4, \"Humidity\": 45.93}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.97, \"Reading\": 5, \"Humidity\": 45.93}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.98, \"Reading\": 6, \"Humidity\": 45.9}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.95, \"Reading\": 7, \"Humidity\": 45.9}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.94, \"Reading\": 8, \"Humidity\": 45.97}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.92, \"Reading\": 9, \"Humidity\": 46.0}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.92, \"Reading\": 10, \"Humidity\": 46.1}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.9, \"Reading\": 11, \"Humidity\": 46.1}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.89, \"Reading\": 12, \"Humidity\": 46.2}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.88, \"Reading\": 13, \"Humidity\": 46.26}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.88, \"Reading\": 14, \"Humidity\": 46.3}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.87, \"Reading\": 15, \"Humidity\": 46.23}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.87, \"Reading\": 16, \"Humidity\": 46.16}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.85, \"Reading\": 17, \"Humidity\": 46.13}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.86, \"Reading\": 18, \"Humidity\": 46.1}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.86, \"Reading\": 19, \"Humidity\": 46.1}\n [x] Sent:  {\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.84, \"Reading\": 20, \"Humidity\": 46.07}\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559888039346_-537725870",
+      "id": "20190607-061359_1506763757",
+      "dateCreated": "Jun 7, 2019 6:13:59 AM",
+      "dateStarted": "Jun 7, 2019 7:35:29 AM",
+      "dateFinished": "Jun 7, 2019 7:35:29 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "# Receive a message only\nimport pika\n\nconnection \u003d pika.BlockingConnection(\n    pika.ConnectionParameters(host\u003d\u0027rabbitmq\u0027))\nchannel \u003d connection.channel()\n\nchannel.queue_declare(queue\u003d\u0027sensor\u0027)\n\n\ndef callback(ch, method, properties, body):\n    print(\" [x] Received %r\" % body)\n    ch.basic_ack(delivery_tag\u003dmethod.delivery_tag)\n    ch.stop_consuming()\n\nchannel.basic_consume(\n    queue\u003d\u0027sensor\u0027, on_message_callback\u003dcallback, auto_ack\u003dFalse)\n\nchannel.start_consuming()\nconnection.close()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 7:35:34 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " [x] Received b\u0027{\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.96, \"Reading\": 3, \"Humidity\": 45.9}\u0027\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559889171467_-1593079544",
+      "id": "20190607-063251_765330246",
+      "dateCreated": "Jun 7, 2019 6:32:51 AM",
+      "dateStarted": "Jun 7, 2019 7:35:34 AM",
+      "dateFinished": "Jun 7, 2019 7:35:34 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559889347765_1658108314",
+      "id": "20190607-063547_808440555",
+      "dateCreated": "Jun 7, 2019 6:35:47 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-13/Sensor-data",
+  "id": "2ECZXPHSY",
+  "angularObjects": {
+    "2ECGBTJBP:shared_process": [],
+    "2EFK8F5Y8:shared_process": [],
+    "2ECE2SYBS:shared_process": [],
+    "2EFERME4M:shared_process": [],
+    "2EEDDY4C6:shared_process": [],
+    "2EDC4B48S:shared_process": [],
+    "2EDWZQ8ZH:shared_process": [],
+    "2EF3PYKSF:shared_process": [],
+    "2EDYQE95R:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

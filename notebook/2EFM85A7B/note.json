@@ -1,0 +1,71 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\nq \u003d\"\"\"{\n  \"query\": {\n    \"match_all\": {\n    }  \n  }\n}\"\"\"\n\nes_read_conf \u003d {\n    \"es.nodes\" : \"elasticsearch\",\n    \"es.port\" : \"9200\",\n    \"es.query\" : q,\n    \"es.resource\" : \"sensor\"\n}\n\nes_rdd \u003d sc.newAPIHadoopRDD(\n    inputFormatClass\u003d\"org.elasticsearch.hadoop.mr.EsInputFormat\",\n    keyClass\u003d\"org.apache.hadoop.io.NullWritable\", \n    valueClass\u003d\"org.elasticsearch.hadoop.mr.LinkedMapWritable\", \n    conf\u003des_read_conf)\n\nsqlContext.createDataFrame(es_rdd).collect()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 8:04:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[Row(_1\u003d\u002713\u0027, _2\u003d{\u0027Label\u0027: \u00270\u0027, \u0027Tepmrature\u0027: \u002727.88\u0027, \u0027Humidity\u0027: \u002746.26\u0027, \u0027Reading\u0027: \u002713\u0027, \u0027Mote-ID\u0027: \u00271\u0027}), Row(_1\u003d\u00274\u0027, _2\u003d{\u0027Label\u0027: \u00270\u0027, \u0027Tepmrature\u0027: \u002727.95\u0027, \u0027Humidity\u0027: \u002745.93\u0027, \u0027Reading\u0027: \u00274\u0027, \u0027Mote-ID\u0027: \u00271\u0027})]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559893287253_-2128582736",
+      "id": "20190607-074127_2029227105",
+      "dateCreated": "Jun 7, 2019 7:41:27 AM",
+      "dateStarted": "Jun 7, 2019 8:04:19 AM",
+      "dateFinished": "Jun 7, 2019 8:04:20 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 7:42:24 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559893344204_1138597655",
+      "id": "20190607-074224_1232539708",
+      "dateCreated": "Jun 7, 2019 7:42:24 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "/Big-data-class/Module-13/Spark-Elasticsearch",
+  "id": "2EFM85A7B",
+  "angularObjects": {
+    "2EDB2DQ5R:shared_process": [],
+    "2EC8XZASD:shared_process": [],
+    "2ED3FBTWE:shared_process": [],
+    "2EEC2UEJH:shared_process": [],
+    "2EF1AST3Q:shared_process": [],
+    "2EDPWYSBK:shared_process": [],
+    "2ECAQ6M3S:shared_process": [],
+    "2EC8NPQFV:shared_process": [],
+    "2EFM86G35:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
