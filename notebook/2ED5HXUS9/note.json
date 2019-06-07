@@ -1,23 +1,73 @@
 {
   "paragraphs": [
     {
+      "text": "%md\n## Docker configuration\n`docker-composer up -d --build spark_master`\n`docker-composer up -d --build spark_worker_01`\n\n## Start master node\n`/usr/spark-2.2.0/sbin/start-master.sh`\n\n## Start slave node\n`/usr/spark-2.2.0/sbin/start-slave.sh`",
       "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:40:24 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eDocker configuration\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003edocker-composer up -d --build spark_master\u003c/code\u003e\u003cbr/\u003e\u003ccode\u003edocker-composer up -d --build spark_worker_01\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003eStart master node\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003e/usr/spark-2.2.0/sbin/start-master.sh\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003eStart slave node\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003e/usr/spark-2.2.0/sbin/start-slave.sh\u003c/code\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559702926515_402506148",
+      "id": "20190605-024846_1387444646",
+      "dateCreated": "Jun 5, 2019 2:48:46 AM",
+      "dateStarted": "Jun 7, 2019 3:40:24 AM",
+      "dateFinished": "Jun 7, 2019 3:40:24 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:39:13 AM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1559702926515_402506148",
-      "id": "20190605-024846_1387444646",
-      "dateCreated": "Jun 5, 2019 2:48:46 AM",
+      "jobName": "paragraph_1559878753005_401548604",
+      "id": "20190607-033913_255844982",
+      "dateCreated": "Jun 7, 2019 3:39:13 AM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
   "name": "/Big-data-class/Module-12/Spark-cluster",
   "id": "2ED5HXUS9",
-  "angularObjects": {},
+  "angularObjects": {
+    "2EDWUXYNR:shared_process": [],
+    "2EFCFNM7A:shared_process": [],
+    "2EBXE3Q6A:shared_process": [],
+    "2EEPM5RQS:shared_process": [],
+    "2EDVNYCKM:shared_process": [],
+    "2EDZN8E1X:shared_process": [],
+    "2ECHAXWK5:shared_process": [],
+    "2EEUCSKXX:shared_process": [],
+    "2EF1Q28F2:shared_process": []
+  },
   "config": {},
   "info": {}
 }

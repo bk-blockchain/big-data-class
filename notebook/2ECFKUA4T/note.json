@@ -2,8 +2,9 @@
   "paragraphs": [
     {
       "title": "Input is a text file",
-      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/learning-spark/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027 \u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
-      "dateUpdated": "Jun 7, 2019 3:26:32 AM",
+      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027 \u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
+      "user": "anonymous",
+      "dateUpdated": "Jun 7, 2019 3:37:18 AM",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
@@ -33,8 +34,9 @@
       "jobName": "paragraph_1559877992180_-1244945934",
       "id": "20190519-071415_1962473504",
       "dateCreated": "Jun 7, 2019 3:26:32 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Jun 7, 2019 3:37:18 AM",
+      "dateFinished": "Jun 7, 2019 3:37:19 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
