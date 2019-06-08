@@ -12,13 +12,12 @@ services:
         com.bkwallet.maintainer: "ChungDT <chungdt@soict.hust.edu.vn>"
     environment:
       - ZEPPELIN_PORT=80
-      - SPARK_MASTER=local[*]
-      - MASTER=local[*]
+      - SPARK_MASTER=spark://master-spark:7077
+      - MASTER=spark://master-spark:7077
       - SPARK_WORKER_CORES=1
       - SPARK_WORKER_MEMORY=2G
       - SPARK_DRIVER_MEMORY=512m
       - SPARK_EXECUTOR_MEMORY=512m
-      - SPARK_DAEMON_MEMORY=4G
     healthcheck:
       disable: true
     dns:
@@ -27,7 +26,6 @@ services:
     ports:
       - 4040:4040
       - 7077:7077
-      - 8080:8080
       - 6066:6066
       - 8081:8081
       - 80:80
@@ -37,13 +35,8 @@ services:
         max-size: "50m"
         max-file: "2"
     restart: "always"
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.10
     extra_hosts:
-      - "master:10.0.1.10"
-      - "worker_01:10.0.1.11"
-      - "worker_02:10.0.1.12"
+      - "master-spark:192.168.0.100"
     deploy:
       resources:
         limits:
@@ -188,9 +181,6 @@ services:
       - './elasticsearch/esdata1:/usr/share/elasticsearch/data'
     ports:
       - 9200:9200
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.14
 
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4

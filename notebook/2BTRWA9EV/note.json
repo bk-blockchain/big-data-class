@@ -2,7 +2,8 @@
   "paragraphs": [
     {
       "text": "%sh\nenv | grep -E \"ZEPPELIN|SPARK|HADOOP\" | sort",
-      "dateUpdated": "Jul 31, 2016 6:58:33 PM",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 4:24:12 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -15,25 +16,39 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        }
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "HADOOP_CONF_DIR\u003d/usr/hadoop-2.7.3/etc/hadoop\nHADOOP_HOME\u003d/usr/hadoop-2.7.3\nHADOOP_VERSION\u003d2.7.3\nSPARK_DIST_CLASSPATH\u003d/usr/hadoop-2.7.3/etc/hadoop/*:/usr/hadoop-2.7.3/share/hadoop/common/lib/*:/usr/hadoop-2.7.3/share/hadoop/common/*:/usr/hadoop-2.7.3/share/hadoop/hdfs/*:/usr/hadoop-2.7.3/share/hadoop/hdfs/lib/*:/usr/hadoop-2.7.3/share/hadoop/hdfs/*:/usr/hadoop-2.7.3/share/hadoop/yarn/lib/*:/usr/hadoop-2.7.3/share/hadoop/yarn/*:/usr/hadoop-2.7.3/share/hadoop/mapreduce/lib/*:/usr/hadoop-2.7.3/share/hadoop/mapreduce/*:/usr/hadoop-2.7.3/share/hadoop/tools/lib/*\nSPARK_DRIVER_MEMORY\u003d512m\nSPARK_EXECUTOR_MEMORY\u003d512m\nSPARK_HOME\u003d/usr/spark-2.2.0\nSPARK_MASTER\u003dspark://master:7077\nSPARK_PACKAGE\u003dspark-2.2.0-bin-without-hadoop\nSPARK_VERSION\u003d2.2.0\nSPARK_WORKER_CORES\u003d1\nSPARK_WORKER_MEMORY\u003d2G\nZEPPELIN_COMMIT\u003dv0.7.3\nZEPPELIN_CONF_DIR\u003d/usr/zeppelin/conf\nZEPPELIN_ENCODING\u003dUTF-8\nZEPPELIN_HOME\u003d/usr/zeppelin\nZEPPELIN_IDENT_STRING\u003d\nZEPPELIN_INTERPRETER_REMOTE_RUNNER\u003dbin/interpreter.sh\nZEPPELIN_INTP_MEM\u003d-Xms1024m -Xmx1024m -XX:MaxPermSize\u003d512m\nZEPPELIN_LOG_DIR\u003d/usr/zeppelin/logs\nZEPPELIN_MEM\u003d-Xms1024m -Xmx1024m -XX:MaxPermSize\u003d512m\nZEPPELIN_NOTEBOOK_DIR\u003d/usr/zeppelin/notebook\nZEPPELIN_PID_DIR\u003d/usr/zeppelin/run\nZEPPELIN_PORT\u003d80\nZEPPELIN_RUNNER\u003d/usr/jdk1.8.0_131/bin/java\nZEPPELIN_WAR\u003d/usr/zeppelin/zeppelin-web-0.7.3.war\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1469169923986_-1211181225",
       "id": "20160722-064523_924527479",
       "dateCreated": "Jul 22, 2016 6:45:23 AM",
-      "dateStarted": "Jul 31, 2016 6:58:33 PM",
-      "dateFinished": "Jul 31, 2016 6:58:35 PM",
+      "dateStarted": "Jun 8, 2019 4:24:12 AM",
+      "dateFinished": "Jun 8, 2019 4:24:12 AM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nsc.version\nsc.master\nsc.appName\nsc.applicationId\nsc.jars\nsc.getConf.toDebugString\nsc.hadoopConfiguration",
-      "dateUpdated": "Jul 31, 2016 6:58:33 PM",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 4:25:28 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -46,25 +61,39 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        }
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.lang.NullPointerException\n\tat org.apache.zeppelin.spark.Utils.invokeMethod(Utils.java:38)\n\tat org.apache.zeppelin.spark.Utils.invokeMethod(Utils.java:33)\n\tat org.apache.zeppelin.spark.SparkInterpreter.createSparkContext_2(SparkInterpreter.java:398)\n\tat org.apache.zeppelin.spark.SparkInterpreter.createSparkContext(SparkInterpreter.java:387)\n\tat org.apache.zeppelin.spark.SparkInterpreter.getSparkContext(SparkInterpreter.java:146)\n\tat org.apache.zeppelin.spark.SparkInterpreter.open(SparkInterpreter.java:843)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:70)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:491)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:175)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler$1.run(FIFOScheduler.java:139)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+          }
+        ]
       },
       "apps": [],
       "jobName": "paragraph_1469169953418_1749723717",
       "id": "20160722-064553_1487295533",
       "dateCreated": "Jul 22, 2016 6:45:53 AM",
-      "dateStarted": "Jul 31, 2016 6:58:33 PM",
-      "dateFinished": "Jul 31, 2016 6:58:49 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
+      "dateStarted": "Jun 8, 2019 4:25:28 AM",
+      "dateFinished": "Jun 8, 2019 4:26:30 AM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python print(sys.version)",
-      "dateUpdated": "Jul 31, 2016 6:58:33 PM",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 4:24:12 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -77,6 +106,92 @@
           "scatter": {}
         },
         "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-122441881511904249.py\", line 276, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\nNameError: name \u0027sys\u0027 is not defined\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-122441881511904249.py\", line 283, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-122441881511904249.py\", line 276, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\nNameError: name \u0027sys\u0027 is not defined\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1469169964908_-998152927",
+      "id": "20160722-064604_1357965809",
+      "dateCreated": "Jul 22, 2016 6:46:04 AM",
+      "dateStarted": "Jun 8, 2019 4:24:12 AM",
+      "dateFinished": "Jun 8, 2019 4:24:12 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh pip list ",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 4:24:34 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/sh",
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DEPRECATION: The default format will switch to columns in the future. You can use --format\u003d(legacy|columns) (or define a format\u003d(legacy|columns) in your pip.conf under the [list] section) to disable this warning.\ncertifi (2019.3.9)\nchardet (3.0.4)\nelasticsearch (7.0.2)\nidna (2.8)\nnumpy (1.13.3)\npandas (0.20.3)\npandasql (0.7.3)\npika (1.0.1)\npip (9.0.1)\npy4j (0.10.6)\npython-dateutil (2.6.1)\npytz (2017.2)\nrequests (2.21.0)\nscipy (0.19.1)\nsetuptools (5.5.1)\nsix (1.11.0)\nSQLAlchemy (1.1.14)\nurllib3 (1.24.3)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1469169982498_-2090439731",
+      "id": "20160722-064622_1971147917",
+      "dateCreated": "Jul 22, 2016 6:46:22 AM",
+      "dateStarted": "Jun 8, 2019 4:24:34 AM",
+      "dateFinished": "Jun 8, 2019 4:24:34 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 4:24:12 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
         "editorMode": "ace/mode/scala"
       },
       "settings": {
@@ -84,62 +199,25 @@
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1469169964908_-998152927",
-      "id": "20160722-064604_1357965809",
-      "dateCreated": "Jul 22, 2016 6:46:04 AM",
-      "dateStarted": "Jul 31, 2016 6:58:33 PM",
-      "dateFinished": "Jul 31, 2016 6:58:35 PM",
+      "jobName": "paragraph_1559967775004_1508097437",
+      "id": "20190608-042255_1146515450",
+      "dateCreated": "Jun 8, 2019 4:22:55 AM",
       "status": "FINISHED",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%sh pip list ",
-      "dateUpdated": "Jul 31, 2016 6:58:33 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "enabled": true,
-        "editorMode": "ace/mode/sh"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1469169982498_-2090439731",
-      "id": "20160722-064622_1971147917",
-      "dateCreated": "Jul 22, 2016 6:46:22 AM",
-      "dateStarted": "Jul 31, 2016 6:58:35 PM",
-      "dateFinished": "Jul 31, 2016 6:58:36 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
   "name": "About this Build",
   "id": "2BTRWA9EV",
-  "lastReplName": {
-    "value": "sh"
-  },
   "angularObjects": {
-    "2BUBMHKCA:shared_process": [],
-    "2BRPZA3RF:shared_process": [],
-    "2BTW29XV5:shared_process": [],
-    "2BSRRQM1P:shared_process": [],
-    "2BUHJV6B2:shared_process": [],
-    "2BS72M8WX:shared_process": [],
-    "2BR3DV9WJ:shared_process": [],
-    "2BRJW2SGW:shared_process": [],
-    "2BTUHYYPX:shared_process": []
+    "2EDKJJEDZ:shared_process": [],
+    "2ED4YE36S:shared_process": [],
+    "2EEG4EDQ1:shared_process": [],
+    "2ED3N6JNP:shared_process": [],
+    "2EC8KCWUX:shared_process": [],
+    "2EEAPS6SJ:shared_process": [],
+    "2EEVMRSHV:shared_process": [],
+    "2EFQRWMFP:shared_process": [],
+    "2EEHUTDV4:shared_process": []
   },
   "config": {},
   "info": {}
