@@ -79,13 +79,6 @@ services:
         max-size: "50m"
         max-file: "2"
     restart: "always"
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.11
-    extra_hosts:
-      - "master:10.0.1.10"
-      - "worker_01:10.0.1.11"
-      - "worker_02:10.0.1.12"
 
   spark_worker_02:
     container_name: spark_worker_02
@@ -118,13 +111,6 @@ services:
         max-size: "50m"
         max-file: "2"
     restart: "always"
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.12
-    extra_hosts:
-      - "master:10.0.1.10"
-      - "worker_01:10.0.1.11"
-      - "worker_02:10.0.1.12"
 
   rabbitmq:
     container_name: rabbitmq
@@ -153,13 +139,6 @@ services:
         max-size: "50m"
         max-file: "2"
     restart: "always"
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.13
-    extra_hosts:
-      - "master:10.0.1.10"
-      - "worker_01:10.0.1.11"
-      - "worker_02:10.0.1.12"
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
@@ -201,9 +180,6 @@ services:
         hard: -1
     volumes:
       - './elasticsearch/esdata2:/usr/share/elasticsearch/data'
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.15
 
   kibana:
     image: 'docker.elastic.co/kibana/kibana:6.3.2'
@@ -213,14 +189,3 @@ services:
       ELASTICSEARCH_URL: http://elasticsearch:9200
     ports:
       - '5601:5601'
-    networks:
-      spark-network:
-        ipv4_address: 10.0.1.16
-
-networks:
-  spark-network:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.0.1.0/24

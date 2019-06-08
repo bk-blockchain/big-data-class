@@ -3,7 +3,7 @@
     {
       "text": "%python\n# Read data as base station\nimport csv, json\n\ncsvFilePath \u003d \"/usr/zeppelin/notebook/dataset/sensor/sample.txt\"\n\ndata \u003d []\nwith open (csvFilePath) as csvFile:\n    csvReader \u003d csv.DictReader(csvFile, delimiter\u003d\u0027\\t\u0027)\n    for csvRow in csvReader:\n        csvRow[\u0027Label\u0027] \u003d int(csvRow[\u0027Label\u0027])\n        csvRow[\u0027Mote-ID\u0027] \u003d int(csvRow[\u0027Mote-ID\u0027])\n        csvRow[\u0027Reading\u0027] \u003d int(csvRow[\u0027Reading\u0027])\n        csvRow[\u0027Tepmrature\u0027] \u003d float(csvRow[\u0027Tepmrature\u0027])\n        csvRow[\u0027Humidity\u0027] \u003d float(csvRow[\u0027Humidity\u0027])\n        data.append(csvRow)",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 4:51:14 AM",
+      "dateUpdated": "Jun 8, 2019 7:13:58 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -26,8 +26,8 @@
       "jobName": "paragraph_1559886783696_-1348368256",
       "id": "20190607-055303_1006380082",
       "dateCreated": "Jun 7, 2019 5:53:03 AM",
-      "dateStarted": "Jun 8, 2019 4:51:14 AM",
-      "dateFinished": "Jun 8, 2019 4:51:14 AM",
+      "dateStarted": "Jun 8, 2019 7:13:58 AM",
+      "dateFinished": "Jun 8, 2019 7:13:58 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
