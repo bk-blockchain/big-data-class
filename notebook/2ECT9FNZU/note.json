@@ -33,7 +33,7 @@
     {
       "text": "%sql \nCREATE TABLE adult (\n  age DOUBLE,\n  workclass STRING,\n  fnlwgt DOUBLE,\n  education STRING,\n  education_num DOUBLE,\n  marital_status STRING,\n  occupation STRING,\n  relationship STRING,\n  race STRING,\n  sex STRING,\n  capital_gain DOUBLE,\n  capital_loss DOUBLE,\n  hours_per_week DOUBLE,\n  native_country STRING,\n  income STRING)\nUSING CSV\nOPTIONS (path \"/usr/zeppelin/notebook/dataset/adult.data\", header \"true\")",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:57:19 AM",
+      "dateUpdated": "Jun 8, 2019 8:57:06 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -52,16 +52,32 @@
       "jobName": "paragraph_1559837854181_-458791360",
       "id": "20190606-161734_49122392",
       "dateCreated": "Jun 6, 2019 4:17:34 PM",
-      "dateStarted": "Jun 7, 2019 2:57:19 AM",
-      "dateFinished": "Jun 7, 2019 2:57:19 AM",
+      "dateStarted": "Jun 8, 2019 8:57:06 AM",
+      "dateFinished": "Jun 8, 2019 8:57:23 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 8:53:45 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559984025950_2090301394",
+      "id": "20190608-085345_970697547",
+      "dateCreated": "Jun 8, 2019 8:53:45 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "text": "%pyspark\ndataset \u003d spark.table(\"adult\")\ncols \u003d dataset.columns",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:57:25 AM",
+      "dateUpdated": "Jun 8, 2019 8:57:34 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -84,8 +100,44 @@
       "jobName": "paragraph_1559869187453_485722567",
       "id": "20190607-005947_287688399",
       "dateCreated": "Jun 7, 2019 12:59:47 AM",
-      "dateStarted": "Jun 7, 2019 2:57:25 AM",
-      "dateFinished": "Jun 7, 2019 2:57:25 AM",
+      "dateStarted": "Jun 8, 2019 8:57:34 AM",
+      "dateFinished": "Jun 8, 2019 8:57:35 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndataset.show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 8:58:39 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----+-----------------+--------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+--------------+------+\n| age|        workclass|  fnlwgt|    education|education_num|      marital_status|        occupation|  relationship|               race|    sex|capital_gain|capital_loss|hours_per_week|native_country|income|\n+----+-----------------+--------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+--------------+------+\n|50.0| Self-emp-not-inc| 83311.0|    Bachelors|         13.0|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|         0.0|         0.0|          13.0| United-States| \u003c\u003d50K|\n|38.0|          Private|215646.0|      HS-grad|          9.0|            Divorced| Handlers-cleaners| Not-in-family|              White|   Male|         0.0|         0.0|          40.0| United-States| \u003c\u003d50K|\n|53.0|          Private|234721.0|         11th|          7.0|  Married-civ-spouse| Handlers-cleaners|       Husband|              Black|   Male|         0.0|         0.0|          40.0| United-States| \u003c\u003d50K|\n|28.0|          Private|338409.0|    Bachelors|         13.0|  Married-civ-spouse|    Prof-specialty|          Wife|              Black| Female|         0.0|         0.0|          40.0|          Cuba| \u003c\u003d50K|\n|37.0|          Private|284582.0|      Masters|         14.0|  Married-civ-spouse|   Exec-managerial|          Wife|              White| Female|         0.0|         0.0|          40.0| United-States| \u003c\u003d50K|\n|49.0|          Private|160187.0|          9th|          5.0| Married-spouse-a...|     Other-service| Not-in-family|              Black| Female|         0.0|         0.0|          16.0|       Jamaica| \u003c\u003d50K|\n|52.0| Self-emp-not-inc|209642.0|      HS-grad|          9.0|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|         0.0|         0.0|          45.0| United-States|  \u003e50K|\n|31.0|          Private| 45781.0|      Masters|         14.0|       Never-married|    Prof-specialty| Not-in-family|              White| Female|     14084.0|         0.0|          50.0| United-States|  \u003e50K|\n|42.0|          Private|159449.0|    Bachelors|         13.0|  Married-civ-spouse|   Exec-managerial|       Husband|              White|   Male|      5178.0|         0.0|          40.0| United-States|  \u003e50K|\n|37.0|          Private|280464.0| Some-college|         10.0|  Married-civ-spouse|   Exec-managerial|       Husband|              Black|   Male|         0.0|         0.0|          80.0| United-States|  \u003e50K|\n|30.0|        State-gov|141297.0|    Bachelors|         13.0|  Married-civ-spouse|    Prof-specialty|       Husband| Asian-Pac-Islander|   Male|         0.0|         0.0|          40.0|         India|  \u003e50K|\n|23.0|          Private|122272.0|    Bachelors|         13.0|       Never-married|      Adm-clerical|     Own-child|              White| Female|         0.0|         0.0|          30.0| United-States| \u003c\u003d50K|\n|32.0|          Private|205019.0|   Assoc-acdm|         12.0|       Never-married|             Sales| Not-in-family|              Black|   Male|         0.0|         0.0|          50.0| United-States| \u003c\u003d50K|\n|40.0|          Private|121772.0|    Assoc-voc|         11.0|  Married-civ-spouse|      Craft-repair|       Husband| Asian-Pac-Islander|   Male|         0.0|         0.0|          40.0|             ?|  \u003e50K|\n|34.0|          Private|245487.0|      7th-8th|          4.0|  Married-civ-spouse|  Transport-moving|       Husband| Amer-Indian-Eskimo|   Male|         0.0|         0.0|          45.0|        Mexico| \u003c\u003d50K|\n|25.0| Self-emp-not-inc|176756.0|      HS-grad|          9.0|       Never-married|   Farming-fishing|     Own-child|              White|   Male|         0.0|         0.0|          35.0| United-States| \u003c\u003d50K|\n|32.0|          Private|186824.0|      HS-grad|          9.0|       Never-married| Machine-op-inspct|     Unmarried|              White|   Male|         0.0|         0.0|          40.0| United-States| \u003c\u003d50K|\n|38.0|          Private| 28887.0|         11th|          7.0|  Married-civ-spouse|             Sales|       Husband|              White|   Male|         0.0|         0.0|          50.0| United-States| \u003c\u003d50K|\n|43.0| Self-emp-not-inc|292175.0|      Masters|         14.0|            Divorced|   Exec-managerial|     Unmarried|              White| Female|         0.0|         0.0|          45.0| United-States|  \u003e50K|\n|40.0|          Private|193524.0|    Doctorate|         16.0|  Married-civ-spouse|    Prof-specialty|       Husband|              White|   Male|         0.0|         0.0|          60.0| United-States|  \u003e50K|\n+----+-----------------+--------+-------------+-------------+--------------------+------------------+--------------+-------------------+-------+------------+------------+--------------+--------------+------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559984257427_1713353097",
+      "id": "20190608-085737_1137913353",
+      "dateCreated": "Jun 8, 2019 8:57:37 AM",
+      "dateStarted": "Jun 8, 2019 8:58:27 AM",
+      "dateFinished": "Jun 8, 2019 8:58:34 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -93,7 +145,7 @@
       "title": "Preprocess Data",
       "text": "%pyspark\nfrom pyspark.ml import Pipeline\nfrom pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler\ncategoricalColumns \u003d [\"workclass\", \"education\", \"marital_status\", \"occupation\", \"relationship\", \"race\", \"sex\", \"native_country\"]\nstages \u003d [] # stages in our Pipeline\nfor categoricalCol in categoricalColumns:\n    # Category Indexing with StringIndexer\n    stringIndexer \u003d StringIndexer(inputCol\u003dcategoricalCol, outputCol\u003dcategoricalCol + \"Index\")\n    # Use OneHotEncoder to convert categorical variables into binary SparseVectors\n    encoder \u003d OneHotEncoder(inputCol\u003dcategoricalCol + \"Index\", outputCol\u003dcategoricalCol + \"classVec\")\n    # Add stages.  These are not run here, but will run all at once later on.\n    stages +\u003d [stringIndexer, encoder]\n    \n# Convert label into label indices using the StringIndexer\nlabel_stringIdx \u003d StringIndexer(inputCol\u003d\"income\", outputCol\u003d\"label\")\nstages +\u003d [label_stringIdx]\n\n# Transform all features into a vector using VectorAssembler\nnumericCols \u003d [\"age\", \"fnlwgt\", \"education_num\", \"capital_gain\", \"capital_loss\", \"hours_per_week\"]\nassemblerInputs \u003d [c + \"classVec\" for c in categoricalColumns] + numericCols\nassembler \u003d VectorAssembler(inputCols\u003dassemblerInputs, outputCol\u003d\"features\")\nstages +\u003d [assembler]",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:57:26 AM",
+      "dateUpdated": "Jun 8, 2019 9:22:05 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -117,16 +169,16 @@
       "jobName": "paragraph_1559869375394_-1907371263",
       "id": "20190607-010255_1654554349",
       "dateCreated": "Jun 7, 2019 1:02:55 AM",
-      "dateStarted": "Jun 7, 2019 2:57:26 AM",
-      "dateFinished": "Jun 7, 2019 2:57:27 AM",
+      "dateStarted": "Jun 8, 2019 9:22:05 AM",
+      "dateFinished": "Jun 8, 2019 9:22:05 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Split training and testing data",
-      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n  \npartialPipeline \u003d Pipeline().setStages(stages)\npipelineModel \u003d partialPipeline.fit(dataset)\npreppedDataDF \u003d pipelineModel.transform(dataset)\n\n# Fit model to prepped data\nlrModel \u003d LogisticRegression().fit(preppedDataDF)\n\n# Keep relevant columns\nselectedcols \u003d [\"label\", \"features\"] + cols\ndataset \u003d preppedDataDF.select(selectedcols)\n\n(trainingData, testData) \u003d dataset.randomSplit([0.7, 0.3], seed\u003d100)\nprint(trainingData.count())\nprint(testData.count())",
+      "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n  \npartialPipeline \u003d Pipeline().setStages(stages)\npipelineModel \u003d partialPipeline.fit(dataset)\npreppedDataDF \u003d pipelineModel.transform(dataset)\n\n# Fit model to prepped data\nlrModel \u003d LogisticRegression().fit(preppedDataDF)\n\n# Keep relevant columns\nselectedcols \u003d [\"label\", \"features\"] + cols\ndataset \u003d preppedDataDF.select(selectedcols)\n\n(trainingData, testData) \u003d dataset.randomSplit([0.8, 0.2], seed\u003d100)\nprint(trainingData.count())\nprint(testData.count())",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:58:05 AM",
+      "dateUpdated": "Jun 8, 2019 9:22:06 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -143,11 +195,11 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "22837\n9723\n"
+            "data": "Traceback (most recent call last):\n  File \"/usr/spark-2.2.0/python/pyspark/sql/utils.py\", line 63, in deco\n    return f(*a, **kw)\n  File \"/usr/local/lib/python3.4/dist-packages/py4j-0.10.6-py3.4.egg/py4j/protocol.py\", line 320, in get_return_value\n    format(target_id, \".\", name), value)\npy4j.protocol.Py4JJavaError: An error occurred while calling o780.fit.\n: java.lang.IllegalArgumentException: requirement failed: Output column label already exists.\n\tat scala.Predef$.require(Predef.scala:224)\n\tat org.apache.spark.ml.feature.StringIndexerBase$class.validateAndTransformSchema(StringIndexer.scala:71)\n\tat org.apache.spark.ml.feature.StringIndexer.validateAndTransformSchema(StringIndexer.scala:88)\n\tat org.apache.spark.ml.feature.StringIndexer.transformSchema(StringIndexer.scala:120)\n\tat org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:74)\n\tat org.apache.spark.ml.feature.StringIndexer.fit(StringIndexer.scala:109)\n\tat sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:280)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:214)\n\tat java.lang.Thread.run(Thread.java:748)\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-6774315477916856698.py\", line 355, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 3, in \u003cmodule\u003e\n  File \"/usr/spark-2.2.0/python/pyspark/ml/base.py\", line 64, in fit\n    return self._fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/pipeline.py\", line 108, in _fit\n    model \u003d stage.fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/base.py\", line 64, in fit\n    return self._fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/wrapper.py\", line 265, in _fit\n    java_model \u003d self._fit_java(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/wrapper.py\", line 262, in _fit_java\n    return self._java_obj.fit(dataset._jdf)\n  File \"/usr/local/lib/python3.4/dist-packages/py4j-0.10.6-py3.4.egg/py4j/java_gateway.py\", line 1160, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/usr/spark-2.2.0/python/pyspark/sql/utils.py\", line 79, in deco\n    raise IllegalArgumentException(s.split(\u0027: \u0027, 1)[1], stackTrace)\npyspark.sql.utils.IllegalArgumentException: \u0027requirement failed: Output column label already exists.\u0027\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-6774315477916856698.py\", line 367, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/usr/spark-2.2.0/python/pyspark/sql/utils.py\", line 63, in deco\n    return f(*a, **kw)\n  File \"/usr/local/lib/python3.4/dist-packages/py4j-0.10.6-py3.4.egg/py4j/protocol.py\", line 320, in get_return_value\n    format(target_id, \".\", name), value)\npy4j.protocol.Py4JJavaError: An error occurred while calling o780.fit.\n: java.lang.IllegalArgumentException: requirement failed: Output column label already exists.\n\tat scala.Predef$.require(Predef.scala:224)\n\tat org.apache.spark.ml.feature.StringIndexerBase$class.validateAndTransformSchema(StringIndexer.scala:71)\n\tat org.apache.spark.ml.feature.StringIndexer.validateAndTransformSchema(StringIndexer.scala:88)\n\tat org.apache.spark.ml.feature.StringIndexer.transformSchema(StringIndexer.scala:120)\n\tat org.apache.spark.ml.PipelineStage.transformSchema(Pipeline.scala:74)\n\tat org.apache.spark.ml.feature.StringIndexer.fit(StringIndexer.scala:109)\n\tat sun.reflect.GeneratedMethodAccessor85.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:280)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:214)\n\tat java.lang.Thread.run(Thread.java:748)\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-6774315477916856698.py\", line 355, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 3, in \u003cmodule\u003e\n  File \"/usr/spark-2.2.0/python/pyspark/ml/base.py\", line 64, in fit\n    return self._fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/pipeline.py\", line 108, in _fit\n    model \u003d stage.fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/base.py\", line 64, in fit\n    return self._fit(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/wrapper.py\", line 265, in _fit\n    java_model \u003d self._fit_java(dataset)\n  File \"/usr/spark-2.2.0/python/pyspark/ml/wrapper.py\", line 262, in _fit_java\n    return self._java_obj.fit(dataset._jdf)\n  File \"/usr/local/lib/python3.4/dist-packages/py4j-0.10.6-py3.4.egg/py4j/java_gateway.py\", line 1160, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/usr/spark-2.2.0/python/pyspark/sql/utils.py\", line 79, in deco\n    raise IllegalArgumentException(s.split(\u0027: \u0027, 1)[1], stackTrace)\npyspark.sql.utils.IllegalArgumentException: \u0027requirement failed: Output column label already exists.\u0027\n\n"
           }
         ]
       },
@@ -155,16 +207,16 @@
       "jobName": "paragraph_1559869398202_1340525709",
       "id": "20190607-010318_1026877646",
       "dateCreated": "Jun 7, 2019 1:03:18 AM",
-      "dateStarted": "Jun 7, 2019 2:57:29 AM",
-      "dateFinished": "Jun 7, 2019 2:57:40 AM",
-      "status": "FINISHED",
+      "dateStarted": "Jun 8, 2019 9:22:06 AM",
+      "dateFinished": "Jun 8, 2019 9:22:09 AM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Train using Logistic Regression",
       "text": "%pyspark\nfrom pyspark.ml.classification import LogisticRegression\n\n# Create initial LogisticRegression model\nlr \u003d LogisticRegression(labelCol\u003d\"label\", featuresCol\u003d\"features\", maxIter\u003d10)\n\n# Train model with Training Data\nlrModel \u003d lr.fit(trainingData)",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:58:13 AM",
+      "dateUpdated": "Jun 8, 2019 9:23:16 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -188,8 +240,8 @@
       "jobName": "paragraph_1559870276441_1872708938",
       "id": "20190607-011756_14556370",
       "dateCreated": "Jun 7, 2019 1:17:56 AM",
-      "dateStarted": "Jun 7, 2019 2:58:13 AM",
-      "dateFinished": "Jun 7, 2019 2:58:15 AM",
+      "dateStarted": "Jun 8, 2019 9:23:16 AM",
+      "dateFinished": "Jun 8, 2019 9:23:18 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -197,7 +249,7 @@
       "title": "Prediction",
       "text": "%pyspark\n# Make predictions on test data using the transform() method.\n# LogisticRegression.transform() will only use the \u0027features\u0027 column.\npredictions \u003d lrModel.transform(testData)\nselected \u003d predictions.select(\"label\", \"prediction\", \"probability\", \"age\", \"occupation\")\nselected.show()",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 2:58:17 AM",
+      "dateUpdated": "Jun 8, 2019 9:06:30 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -226,8 +278,44 @@
       "jobName": "paragraph_1559871051353_-1261183056",
       "id": "20190607-013051_728042559",
       "dateCreated": "Jun 7, 2019 1:30:51 AM",
-      "dateStarted": "Jun 7, 2019 2:58:17 AM",
-      "dateFinished": "Jun 7, 2019 2:58:18 AM",
+      "dateStarted": "Jun 8, 2019 9:06:30 AM",
+      "dateFinished": "Jun 8, 2019 9:06:32 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ntestData.groupBy(\u0027label\u0027).count().show()",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 9:22:45 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----+-----+\n|label|count|\n+-----+-----+\n|  0.0| 4924|\n|  1.0| 1569|\n+-----+-----+\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1559985037473_1018627399",
+      "id": "20190608-091037_1355458426",
+      "dateCreated": "Jun 8, 2019 9:10:37 AM",
+      "dateStarted": "Jun 8, 2019 9:22:45 AM",
+      "dateFinished": "Jun 8, 2019 9:22:48 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -235,7 +323,7 @@
       "title": "Evaluation",
       "text": "%pyspark\nfrom pyspark.ml.evaluation import BinaryClassificationEvaluator\n\n# Evaluate model\nevaluator \u003d BinaryClassificationEvaluator(rawPredictionCol\u003d\"rawPrediction\")\n\nprint(\"Test Area Under ROC: \" + str(evaluator.evaluate(predictions, {evaluator.metricName: \"areaUnderROC\"})))",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 3:03:16 AM",
+      "dateUpdated": "Jun 8, 2019 9:23:23 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -264,8 +352,8 @@
       "jobName": "paragraph_1559871084040_-964880430",
       "id": "20190607-013124_155821542",
       "dateCreated": "Jun 7, 2019 1:31:24 AM",
-      "dateStarted": "Jun 7, 2019 3:03:16 AM",
-      "dateFinished": "Jun 7, 2019 3:03:17 AM",
+      "dateStarted": "Jun 8, 2019 9:23:24 AM",
+      "dateFinished": "Jun 8, 2019 9:23:25 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -289,15 +377,15 @@
   "name": "/Big-data-class/Module-15/Binary-classification",
   "id": "2ECT9FNZU",
   "angularObjects": {
-    "2EDWUXYNR:shared_process": [],
-    "2EFCFNM7A:shared_process": [],
-    "2EBXE3Q6A:shared_process": [],
-    "2EEPM5RQS:shared_process": [],
-    "2EDVNYCKM:shared_process": [],
-    "2EDZN8E1X:shared_process": [],
-    "2ECHAXWK5:shared_process": [],
-    "2EEUCSKXX:shared_process": [],
-    "2EF1Q28F2:shared_process": []
+    "2EDKJJEDZ:shared_process": [],
+    "2ED4YE36S:shared_process": [],
+    "2EEG4EDQ1:shared_process": [],
+    "2ED3N6JNP:shared_process": [],
+    "2EC8KCWUX:shared_process": [],
+    "2EEAPS6SJ:shared_process": [],
+    "2EEVMRSHV:shared_process": [],
+    "2EFQRWMFP:shared_process": [],
+    "2EEHUTDV4:shared_process": []
   },
   "config": {},
   "info": {}

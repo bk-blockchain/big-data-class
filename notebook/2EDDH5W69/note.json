@@ -3,7 +3,7 @@
     {
       "text": "%md\n## Install cluster\n+ https://blog.ruanbekker.com/blog/2018/04/29/running-a-3-node-elasticsearch-cluster-with-docker-compose-on-your-laptop-for-testing/",
       "user": "anonymous",
-      "dateUpdated": "Jun 5, 2019 5:24:59 PM",
+      "dateUpdated": "Jun 8, 2019 7:53:43 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1559702900715_347841156",
       "id": "20190605-024820_860530370",
       "dateCreated": "Jun 5, 2019 2:48:20 AM",
-      "dateStarted": "Jun 5, 2019 5:24:59 PM",
-      "dateFinished": "Jun 5, 2019 5:25:05 PM",
+      "dateStarted": "Jun 8, 2019 7:53:43 AM",
+      "dateFinished": "Jun 8, 2019 7:53:43 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nimport requests\n\nHOSTNAME \u003d \u0027elasticsearch\u0027\nPORT     \u003d 9200\n\n# make sure ES is up and running\nres \u003d requests.get(\u0027http://elasticsearch:9200\u0027)\n\n#connect to our cluster\nfrom elasticsearch import Elasticsearch\nes \u003d Elasticsearch([{\u0027host\u0027: HOSTNAME, \u0027port\u0027: PORT}])\n\nif (res.status_code \u003d\u003d 200):\n    es.index(index\u003d\u0027test\u0027, doc_type\u003d\u0027name\u0027, id\u003d1, body\u003d\u0027{\"name\":\"chung\", \"age\":\"31\"}\u0027)\n    \nes.get(index\u003d\u0027test\u0027, doc_type\u003d\u0027name\u0027, id\u003d1)\n",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 7:23:58 AM",
+      "dateUpdated": "Jun 8, 2019 7:53:45 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -61,7 +61,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "{\u0027_id\u0027: \u00271\u0027, \u0027_type\u0027: \u0027name\u0027, \u0027_version\u0027: 11, \u0027found\u0027: True, \u0027_source\u0027: {\u0027age\u0027: \u002731\u0027, \u0027name\u0027: \u0027chung\u0027}, \u0027_index\u0027: \u0027test\u0027}\n"
+            "data": "{\u0027_id\u0027: \u00271\u0027, \u0027_type\u0027: \u0027name\u0027, \u0027_version\u0027: 15, \u0027found\u0027: True, \u0027_source\u0027: {\u0027age\u0027: \u002731\u0027, \u0027name\u0027: \u0027chung\u0027}, \u0027_index\u0027: \u0027test\u0027}\n"
           }
         ]
       },
@@ -69,15 +69,15 @@
       "jobName": "paragraph_1559889690773_1720344046",
       "id": "20190607-064130_2066012620",
       "dateCreated": "Jun 7, 2019 6:41:30 AM",
-      "dateStarted": "Jun 8, 2019 7:23:47 AM",
-      "dateFinished": "Jun 8, 2019 7:23:48 AM",
+      "dateStarted": "Jun 8, 2019 7:53:45 AM",
+      "dateFinished": "Jun 8, 2019 7:53:46 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\n# Receive a message and write to Elasticsearch\nimport pika\nimport json\nfrom elasticsearch import Elasticsearch\n\nHOSTNAME \u003d \u0027elasticsearch\u0027\nPORT     \u003d 9200\nINDEX    \u003d \u0027chung\u0027\n\nconnection \u003d pika.BlockingConnection(\n    pika.ConnectionParameters(host\u003d\u0027rabbitmq\u0027))\nchannel \u003d connection.channel()\n\nchannel.queue_declare(queue\u003d\u0027sensor\u0027)\n\nes \u003d Elasticsearch([{\u0027host\u0027: HOSTNAME, \u0027port\u0027: PORT}])\n\ndef callback(ch, method, properties, body):\n    print(\" [x] Received %r\" % body)\n    # Write to Elasticsearch\n    item \u003d json.loads(body.decode(\"utf-8\"))\n    es.index(index\u003dINDEX, doc_type\u003ditem[\u0027Mote-ID\u0027], id\u003ditem[\u0027Reading\u0027], body\u003dbody.decode(\"utf-8\"))\n    ch.basic_ack(delivery_tag\u003dmethod.delivery_tag)\n    ch.stop_consuming()\n\nchannel.basic_consume(\n    queue\u003d\u0027sensor\u0027, on_message_callback\u003dcallback, auto_ack\u003dFalse)\n\nchannel.start_consuming()\nconnection.close()\n",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 7:36:50 AM",
+      "dateUpdated": "Jun 8, 2019 7:53:50 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -93,11 +93,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-9103509254417475241.py\", line 271, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 8, in \u003cmodule\u003e\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/blocking_connection.py\", line 360, in __init__\n    self._impl \u003d self._create_connection(parameters, _impl_class)\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/blocking_connection.py\", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py\", line 564, in _resolve\n    self._flags)\n  File \"/usr/lib/python3.4/socket.py\", line 530, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\nsocket.gaierror: [Errno -2] Name or service not known\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_python-9103509254417475241.py\", line 283, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-9103509254417475241.py\", line 271, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 8, in \u003cmodule\u003e\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/blocking_connection.py\", line 360, in __init__\n    self._impl \u003d self._create_connection(parameters, _impl_class)\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/blocking_connection.py\", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n  File \"/usr/local/lib/python3.4/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py\", line 564, in _resolve\n    self._flags)\n  File \"/usr/lib/python3.4/socket.py\", line 530, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\nsocket.gaierror: [Errno -2] Name or service not known\n\n"
+            "data": " [x] Received b\u0027{\"Label\": 0, \"Mote-ID\": 1, \"Tepmrature\": 27.98, \"Reading\": 6, \"Humidity\": 45.9}\u0027\n"
           }
         ]
       },
@@ -105,9 +105,9 @@
       "jobName": "paragraph_1559755498847_1248876298",
       "id": "20190605-172458_439292384",
       "dateCreated": "Jun 5, 2019 5:24:58 PM",
-      "dateStarted": "Jun 8, 2019 7:36:50 AM",
-      "dateFinished": "Jun 8, 2019 7:36:50 AM",
-      "status": "ERROR",
+      "dateStarted": "Jun 8, 2019 7:53:50 AM",
+      "dateFinished": "Jun 8, 2019 7:53:50 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {

@@ -3,25 +3,54 @@
     {
       "text": "%md\n## Link \n+ https://www.rabbitmq.com/tutorials/tutorial-one-python.html\n+ https://pika.readthedocs.io/en/stable/modules/channel.html",
       "user": "anonymous",
-      "dateUpdated": "Jun 5, 2019 2:09:26 AM",
+      "dateUpdated": "Jun 8, 2019 7:51:59 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true
+          "language": "text",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/text",
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLink\u003c/h2\u003e\n\u003cul\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://www.rabbitmq.com/tutorials/tutorial-one-python.html\"\u003ehttps://www.rabbitmq.com/tutorials/tutorial-one-python.html\u003c/a\u003e\u003c/li\u003e\n  \u003cli\u003e\u003ca href\u003d\"https://pika.readthedocs.io/en/stable/modules/channel.html\"\u003ehttps://pika.readthedocs.io/en/stable/modules/channel.html\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1559700487471_996079588",
       "id": "20190605-020807_1327102815",
       "dateCreated": "Jun 5, 2019 2:08:07 AM",
+      "dateStarted": "Jun 8, 2019 7:51:59 AM",
+      "dateFinished": "Jun 8, 2019 7:52:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "Jun 8, 2019 7:51:55 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1559980315912_-181745889",
+      "id": "20190608-075155_1268922732",
+      "dateCreated": "Jun 8, 2019 7:51:55 AM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     },
@@ -142,15 +171,15 @@
   "name": "/Big-data-class/Module-13/RabbitMQ",
   "id": "2EDHNAF14",
   "angularObjects": {
-    "2EDWUXYNR:shared_process": [],
-    "2EFCFNM7A:shared_process": [],
-    "2EBXE3Q6A:shared_process": [],
-    "2EEPM5RQS:shared_process": [],
-    "2EDVNYCKM:shared_process": [],
-    "2EDZN8E1X:shared_process": [],
-    "2ECHAXWK5:shared_process": [],
-    "2EEUCSKXX:shared_process": [],
-    "2EF1Q28F2:shared_process": []
+    "2EDKJJEDZ:shared_process": [],
+    "2ED4YE36S:shared_process": [],
+    "2EEG4EDQ1:shared_process": [],
+    "2ED3N6JNP:shared_process": [],
+    "2EC8KCWUX:shared_process": [],
+    "2EEAPS6SJ:shared_process": [],
+    "2EEVMRSHV:shared_process": [],
+    "2EFQRWMFP:shared_process": [],
+    "2EEHUTDV4:shared_process": []
   },
   "config": {},
   "info": {}
