@@ -2,17 +2,17 @@
   "paragraphs": [
     {
       "title": "Input is a text file",
-      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027 \u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
+      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027\\t\u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
       "user": "anonymous",
-      "dateUpdated": "Jun 7, 2019 3:37:18 AM",
+      "dateUpdated": "Jun 14, 2019 6:44:39 AM",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
-          "language": "python",
+          "language": "text",
           "editOnDblClick": false
         },
         "colWidth": 12.0,
-        "editorMode": "ace/mode/python",
+        "editorMode": "ace/mode/text",
         "title": true,
         "results": {},
         "enabled": true
@@ -67,17 +67,7 @@
   ],
   "name": "/Big-data-class/Module-09/Word-count",
   "id": "2ECFKUA4T",
-  "angularObjects": {
-    "2EDWUXYNR:shared_process": [],
-    "2EFCFNM7A:shared_process": [],
-    "2EBXE3Q6A:shared_process": [],
-    "2EEPM5RQS:shared_process": [],
-    "2EDVNYCKM:shared_process": [],
-    "2EDZN8E1X:shared_process": [],
-    "2ECHAXWK5:shared_process": [],
-    "2EEUCSKXX:shared_process": [],
-    "2EF1Q28F2:shared_process": []
-  },
+  "angularObjects": {},
   "config": {},
   "info": {}
 }
