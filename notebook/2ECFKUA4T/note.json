@@ -2,17 +2,17 @@
   "paragraphs": [
     {
       "title": "Input is a text file",
-      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027\\t\u0027)).map(lambda x: (x, 1)).reduceByKey(add)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
+      "text": "%pyspark\nfrom operator import add\n\n# Read data\ninput \u003d sc.textFile(\"file:///usr/zeppelin/notebook/dataset/README.md\")\n\n# MapReduce\ncounts \u003d input.flatMap(lambda x: x.split(\u0027 \u0027)).map(lambda x: (x, 1)).reduceByKey(lambda x,y:x+y)\n\n# Output\noutput \u003d counts.collect()\nfor (word, count) in output:\n    print(\"%s: %i\" % (word, count))",
       "user": "anonymous",
-      "dateUpdated": "Jun 14, 2019 6:44:39 AM",
+      "dateUpdated": "Nov 25, 2019 7:02:08 AM",
       "config": {
         "lineNumbers": true,
         "editorSetting": {
-          "language": "text",
+          "language": "python",
           "editOnDblClick": false
         },
         "colWidth": 12.0,
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/python",
         "title": true,
         "results": {},
         "enabled": true
@@ -34,8 +34,8 @@
       "jobName": "paragraph_1559877992180_-1244945934",
       "id": "20190519-071415_1962473504",
       "dateCreated": "Jun 7, 2019 3:26:32 AM",
-      "dateStarted": "Jun 7, 2019 3:37:18 AM",
-      "dateFinished": "Jun 7, 2019 3:37:19 AM",
+      "dateStarted": "Nov 25, 2019 7:02:08 AM",
+      "dateFinished": "Nov 25, 2019 7:02:09 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -67,7 +67,17 @@
   ],
   "name": "/Big-data-class/Module-09/Word-count",
   "id": "2ECFKUA4T",
-  "angularObjects": {},
+  "angularObjects": {
+    "2ESV83UHN:shared_process": [],
+    "2EWA4M4PF:shared_process": [],
+    "2ESZUF52Q:shared_process": [],
+    "2EV3W8JCG:shared_process": [],
+    "2EWF9P5SP:shared_process": [],
+    "2EWCZX62Y:shared_process": [],
+    "2ESWQUBSG:shared_process": [],
+    "2EVTX8KPF:shared_process": [],
+    "2EVWSU8G1:shared_process": []
+  },
   "config": {},
   "info": {}
 }

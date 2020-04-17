@@ -48,7 +48,7 @@
     {
       "text": "%spark\nsc.version\nsc.master\nsc.appName\nsc.applicationId\nsc.jars\nsc.getConf.toDebugString\nsc.hadoopConfiguration",
       "user": "anonymous",
-      "dateUpdated": "Nov 25, 2019 6:14:06 AM",
+      "dateUpdated": "Dec 2, 2019 6:09:20 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -77,7 +77,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: String \u003d 2.2.0\nres1: String \u003d local[*]\nres2: String \u003d Zeppelin\nres3: String \u003d local-1574662456552\nres4: Seq[String] \u003d List(file:/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar)\nres5: String \u003d\nconcurrentSQL\u003dfalse\nimportImplicit\u003dtrue\nmaxResult\u003d1000\nprintREPLOutput\u003dtrue\nspark.app.id\u003dlocal-1574662456552\nspark.app.name\u003dZeppelin\nspark.driver.extraClassPath\u003d:/usr/zeppelin/interpreter/spark/*:/usr/zeppelin/lib/interpreter/*::/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar\nspark.driver.extraJavaOptions\u003d -Dfile.encoding\u003dUTF-8 -Dlog4j.configuration\u003dfile:///usr/zeppelin/conf/log4j.properties -Dzeppelin.log.file\u003d/usr/zeppelin/logs/zeppelin-interpreter-spark--master.log\nspark.driver.host\u003d172.23.0.2\nspark.driver.memory\u003d512m\nspark.driver.port\u003d41287\nspark.executor.id\u003ddriver\nspark.home\u003d/usr/spark-2.2.0\nspark.jars\u003dfile:/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar\nspark.master\u003dlocal[*]\nspark.repl.class.outputDir\u003d/tmp/spark-388ecb24-d212-4ffd-bef6-18...res6: org.apache.hadoop.conf.Configuration \u003d Configuration: core-default.xml, core-site.xml, mapred-default.xml, mapred-site.xml, yarn-default.xml, yarn-site.xml, hdfs-default.xml, hdfs-site.xml\n"
+            "data": "res0: String \u003d 2.2.0\nres1: String \u003d local[*]\nres2: String \u003d Zeppelin\nres3: String \u003d local-1575266973883\nres4: Seq[String] \u003d List(file:/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar)\nres5: String \u003d\nconcurrentSQL\u003dfalse\nimportImplicit\u003dtrue\nmaxResult\u003d1000\nprintREPLOutput\u003dtrue\nspark.app.id\u003dlocal-1575266973883\nspark.app.name\u003dZeppelin\nspark.driver.extraClassPath\u003d:/usr/zeppelin/interpreter/spark/*:/usr/zeppelin/lib/interpreter/*::/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar\nspark.driver.extraJavaOptions\u003d -Dfile.encoding\u003dUTF-8 -Dlog4j.configuration\u003dfile:///usr/zeppelin/conf/log4j.properties -Dzeppelin.log.file\u003d/usr/zeppelin/logs/zeppelin-interpreter-spark--master.log\nspark.driver.host\u003d172.24.0.2\nspark.driver.memory\u003d512m\nspark.driver.port\u003d37805\nspark.executor.id\u003ddriver\nspark.home\u003d/usr/spark-2.2.0\nspark.jars\u003dfile:/usr/zeppelin/interpreter/spark/zeppelin-spark_2.11-0.7.3.jar\nspark.master\u003dlocal[*]\nspark.repl.class.outputDir\u003d/tmp/spark-bb822e87-d32a-4346-b74f-f2...res6: org.apache.hadoop.conf.Configuration \u003d Configuration: core-default.xml, core-site.xml, mapred-default.xml, mapred-site.xml, yarn-default.xml, yarn-site.xml, hdfs-default.xml, hdfs-site.xml\n"
           }
         ]
       },
@@ -85,8 +85,8 @@
       "jobName": "paragraph_1469169953418_1749723717",
       "id": "20160722-064553_1487295533",
       "dateCreated": "Jul 22, 2016 6:45:53 AM",
-      "dateStarted": "Nov 25, 2019 6:14:06 AM",
-      "dateFinished": "Nov 25, 2019 6:14:27 AM",
+      "dateStarted": "Dec 2, 2019 6:09:20 AM",
+      "dateFinished": "Dec 2, 2019 6:09:44 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -209,15 +209,15 @@
   "name": "About this Build",
   "id": "2BTRWA9EV",
   "angularObjects": {
-    "2ESP3P9MZ:shared_process": [],
-    "2ETXU2AC5:shared_process": [],
-    "2EUJFKGWF:shared_process": [],
-    "2ET3YD23J:shared_process": [],
-    "2EWA5BRM8:shared_process": [],
-    "2ETAXZR8W:shared_process": [],
-    "2EUDEW6HQ:shared_process": [],
-    "2EVV1F1J7:shared_process": [],
-    "2EVSJTT4W:shared_process": []
+    "2ESV83UHN:shared_process": [],
+    "2EWA4M4PF:shared_process": [],
+    "2ESZUF52Q:shared_process": [],
+    "2EV3W8JCG:shared_process": [],
+    "2EWF9P5SP:shared_process": [],
+    "2EWCZX62Y:shared_process": [],
+    "2ESWQUBSG:shared_process": [],
+    "2EVTX8KPF:shared_process": [],
+    "2EVWSU8G1:shared_process": []
   },
   "config": {},
   "info": {}

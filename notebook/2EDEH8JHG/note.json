@@ -3,7 +3,8 @@
     {
       "title": "Loading data from CSV",
       "text": "%pyspark\nflightData2015 \u003d spark\\\n  .read\\\n  .option(\"inferSchema\", \"true\")\\\n  .option(\"header\", \"true\")\\\n  .csv(\"/usr/zeppelin/notebook/dataset/2015-summary.csv\")",
-      "dateUpdated": "Jun 7, 2019 2:52:55 AM",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:05:01 AM",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -27,8 +28,9 @@
       "jobName": "paragraph_1559819948881_-1163692008",
       "id": "20190519-074236_88673657",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:05:01 AM",
+      "dateFinished": "Nov 25, 2019 7:05:04 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -71,8 +73,9 @@
     },
     {
       "title": "",
-      "text": "%pyspark\nflightData2015.take(3)",
-      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "text": "%pyspark\nflightData2015.take(1)",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:05:16 AM",
       "config": {
         "tableHide": false,
         "editorSetting": {
@@ -95,7 +98,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Romania\u0027, count\u003d15), Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Croatia\u0027, count\u003d1), Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Ireland\u0027, count\u003d344)]\n"
+            "data": "[Row(DEST_COUNTRY_NAME\u003d\u0027United States\u0027, ORIGIN_COUNTRY_NAME\u003d\u0027Romania\u0027, count\u003d15)]\n"
           }
         ]
       },
@@ -103,8 +106,9 @@
       "jobName": "paragraph_1559819948971_-1110596659",
       "id": "20190519-074258_1595130051",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:05:16 AM",
+      "dateFinished": "Nov 25, 2019 7:05:16 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -144,8 +148,9 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%pyspark\nfrom pyspark.sql.functions import max\nflightData2015.sort(\"count\").show()\nflightData2015.select(max(\"count\")).take(1)",
-      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "text": "%pyspark\nfrom pyspark.sql.functions import max\nflightData2015.printSchema()\nflightData2015.select(max(\"count\")).take(1)",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:09:08 AM",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/python",
@@ -165,7 +170,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "+--------------------+-------------------+-----+\n|   DEST_COUNTRY_NAME|ORIGIN_COUNTRY_NAME|count|\n+--------------------+-------------------+-----+\n|       United States|            Estonia|    1|\n|              Kosovo|      United States|    1|\n|              Zambia|      United States|    1|\n|       United States|   Papua New Guinea|    1|\n|               Malta|      United States|    1|\n|       United States|          Gibraltar|    1|\n|            Suriname|      United States|    1|\n|       United States|            Croatia|    1|\n|            Djibouti|      United States|    1|\n|        Burkina Faso|      United States|    1|\n|Saint Vincent and...|      United States|    1|\n|       United States|             Cyprus|    1|\n|       United States|          Singapore|    1|\n|             Moldova|      United States|    1|\n|              Cyprus|      United States|    1|\n|       United States|          Lithuania|    1|\n|       United States|           Bulgaria|    1|\n|       United States|            Georgia|    1|\n|       United States|            Bahrain|    1|\n|       Cote d\u0027Ivoire|      United States|    1|\n+--------------------+-------------------+-----+\nonly showing top 20 rows\n\n[Row(max(count)\u003d370002)]\n"
+            "data": "root\n |-- DEST_COUNTRY_NAME: string (nullable \u003d true)\n |-- ORIGIN_COUNTRY_NAME: string (nullable \u003d true)\n |-- count: integer (nullable \u003d true)\n\n[Row(max(count)\u003d370002)]\n"
           }
         ]
       },
@@ -173,14 +178,16 @@
       "jobName": "paragraph_1559819948981_-1103671179",
       "id": "20190519-080715_1891193452",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:09:08 AM",
+      "dateFinished": "Nov 25, 2019 7:09:08 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Spark SQL",
       "text": "%pyspark\nflightData2015.createOrReplaceTempView(\"flight_data_2015\")",
-      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:09:09 AM",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -204,13 +211,15 @@
       "jobName": "paragraph_1559819948988_-1106364422",
       "id": "20190519-080740_622461850",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:09:09 AM",
+      "dateFinished": "Nov 25, 2019 7:09:09 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nmaxSql \u003d spark.sql(\"\"\"\nSELECT DEST_COUNTRY_NAME, sum(count) as destination_total\nFROM flight_data_2015\nGROUP BY DEST_COUNTRY_NAME\nORDER BY sum(count) DESC\nLIMIT 5\n\"\"\")\n\nmaxSql.show()",
-      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:09:12 AM",
       "config": {
         "colWidth": 6.0,
         "editorMode": "ace/mode/python",
@@ -238,20 +247,22 @@
       "jobName": "paragraph_1559819948990_-1105594924",
       "id": "20190519-080856_126343929",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:09:12 AM",
+      "dateFinished": "Nov 25, 2019 7:09:15 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\nSELECT DEST_COUNTRY_NAME, sum(count) as destination_total\nFROM flight_data_2015\nGROUP BY DEST_COUNTRY_NAME\nORDER BY sum(count) DESC\nLIMIT 5",
-      "dateUpdated": "Jun 6, 2019 11:19:08 AM",
+      "user": "anonymous",
+      "dateUpdated": "Nov 25, 2019 7:10:11 AM",
       "config": {
         "colWidth": 6.0,
         "editorMode": "ace/mode/sql",
         "results": {
           "0": {
             "graph": {
-              "mode": "table",
+              "mode": "pieChart",
               "height": 300.0,
               "optionOpen": false
             },
@@ -281,8 +292,9 @@
       "jobName": "paragraph_1559819948994_-1119445884",
       "id": "20190519-081029_790674463",
       "dateCreated": "Jun 6, 2019 11:19:08 AM",
-      "status": "READY",
-      "errorMessage": "",
+      "dateStarted": "Nov 25, 2019 7:09:17 AM",
+      "dateFinished": "Nov 25, 2019 7:09:19 AM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -314,15 +326,15 @@
   "name": "/Big-data-class/Module-09/Flight-data",
   "id": "2EDEH8JHG",
   "angularObjects": {
-    "2EDWUXYNR:shared_process": [],
-    "2EFCFNM7A:shared_process": [],
-    "2EBXE3Q6A:shared_process": [],
-    "2EEPM5RQS:shared_process": [],
-    "2EDVNYCKM:shared_process": [],
-    "2EDZN8E1X:shared_process": [],
-    "2ECHAXWK5:shared_process": [],
-    "2EEUCSKXX:shared_process": [],
-    "2EF1Q28F2:shared_process": []
+    "2ESV83UHN:shared_process": [],
+    "2EWA4M4PF:shared_process": [],
+    "2ESZUF52Q:shared_process": [],
+    "2EV3W8JCG:shared_process": [],
+    "2EWF9P5SP:shared_process": [],
+    "2EWCZX62Y:shared_process": [],
+    "2ESWQUBSG:shared_process": [],
+    "2EVTX8KPF:shared_process": [],
+    "2EVWSU8G1:shared_process": []
   },
   "config": {},
   "info": {}

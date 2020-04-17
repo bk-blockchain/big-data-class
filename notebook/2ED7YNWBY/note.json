@@ -42,7 +42,7 @@
       "title": "Loading data from CSV",
       "text": "import org.apache.spark._\nimport org.apache.spark.sql.SQLContext\nimport org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, OneHotEncoder}\nimport org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}\nimport org.apache.spark.ml.evaluation.{RegressionEvaluator}\nimport org.apache.spark.ml.regression.{LinearRegression, RandomForestRegressor, GBTRegressionModel, GBTRegressor}\nimport org.apache.spark.ml.Pipeline\nimport org.apache.spark.mllib.evaluation.RegressionMetrics\nimport org.apache.spark.sql.functions.col\nimport org.apache.spark.sql.types._\nimport scala.io._\n\nval dataPath \u003d \"/usr/zeppelin/notebook/dataset/2008-small.csv\"\n\nval rawData \u003d sqlContext.read.format(\"com.databricks.spark.csv\")\n            .option(\"header\", \"true\")\n            .option(\"inferSchema\", \"true\")\n            .load(dataPath)\n            .withColumn(\"DelayOutputVar\", col(\"ArrDelay\").cast(\"double\"))\n            .withColumn(\"DepDelayDouble\", col(\"DepDelay\").cast(\"double\"))\n            .withColumn(\"TaxiOutDouble\", col(\"TaxiOut\").cast(\"double\"))\n            .cache()",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:41:39 AM",
+      "dateUpdated": "Dec 2, 2019 8:07:02 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -71,15 +71,15 @@
       "jobName": "paragraph_1559814114286_1338979236",
       "id": "20190606-094154_1661056732",
       "dateCreated": "Jun 6, 2019 9:41:54 AM",
-      "dateStarted": "Jun 8, 2019 9:41:28 AM",
-      "dateFinished": "Jun 8, 2019 9:41:32 AM",
+      "dateStarted": "Dec 2, 2019 8:07:02 AM",
+      "dateFinished": "Dec 2, 2019 8:07:05 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "rawData.printSchema()",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:42:08 AM",
+      "dateUpdated": "Dec 2, 2019 8:07:12 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -107,8 +107,8 @@
       "jobName": "paragraph_1559833699076_1996193446",
       "id": "20190606-150819_308895603",
       "dateCreated": "Jun 6, 2019 3:08:19 PM",
-      "dateStarted": "Jun 8, 2019 9:42:08 AM",
-      "dateFinished": "Jun 8, 2019 9:42:09 AM",
+      "dateStarted": "Dec 2, 2019 8:07:12 AM",
+      "dateFinished": "Dec 2, 2019 8:07:12 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -116,7 +116,7 @@
       "title": "Remove unnecessary data",
       "text": "val data2 \u003d rawData\n                .drop(\"ActualElapsedTime\") // Forbidden\n                .drop(\"ArrTime\") // Forbidden\n                .drop(\"AirTime\") // Forbidden\n                .drop(\"TaxiIn\") // Forbidden\n                .drop(\"Diverted\") // Forbidden\n                .drop(\"CarrierDelay\") // Forbidden\n                .drop(\"WeatherDelay\") // Forbidden\n                .drop(\"NASDelay\") // Forbidden\n                .drop(\"SecurityDelay\") // Forbidden\n                .drop(\"LateAircraftDelay\") // Forbidden\n                .drop(\"DepDelay\") // Casted to double in a new variable called DepDelayDouble\n                .drop(\"TaxiOut\") // Casted to double in a new variable called TaxiOutDouble\n                .drop(\"UniqueCarrier\") // Always the same value // Remove correlated variables\n                .drop(\"CancellationCode\") // Cancelled flights don\u0027t count\n                .drop(\"DepTime\") // Highly correlated to CRSDeptime\n                .drop(\"CRSArrTime\") // Highly correlated to CRSDeptime\n                .drop(\"CRSElapsedTime\") // Highly correlated to Distance\n                .drop(\"Distance\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"FlightNum\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"CRSDepTime\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"Year\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"Month\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"DayofMonth\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"DayOfWeek\") // Remove uncorrelated variables to the arrDelay\n                .drop(\"TailNum\")\n\n// remove cancelled flights\nval data \u003d data2.filter(\"DelayOutputVar is not null\")",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:43:45 AM",
+      "dateUpdated": "Dec 2, 2019 8:07:21 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -145,15 +145,15 @@
       "jobName": "paragraph_1559820148687_2054422769",
       "id": "20190606-112228_1826810202",
       "dateCreated": "Jun 6, 2019 11:22:28 AM",
-      "dateStarted": "Jun 8, 2019 9:43:45 AM",
-      "dateFinished": "Jun 8, 2019 9:43:46 AM",
+      "dateStarted": "Dec 2, 2019 8:07:21 AM",
+      "dateFinished": "Dec 2, 2019 8:07:22 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "data.printSchema()",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:43:53 AM",
+      "dateUpdated": "Dec 2, 2019 8:07:29 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -181,8 +181,8 @@
       "jobName": "paragraph_1559833487503_-2131498379",
       "id": "20190606-150447_739845022",
       "dateCreated": "Jun 6, 2019 3:04:47 PM",
-      "dateStarted": "Jun 8, 2019 9:43:53 AM",
-      "dateFinished": "Jun 8, 2019 9:43:54 AM",
+      "dateStarted": "Dec 2, 2019 8:07:29 AM",
+      "dateFinished": "Dec 2, 2019 8:07:29 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -190,7 +190,7 @@
       "title": "Input vector",
       "text": "val assembler \u003d new VectorAssembler()\n                .setInputCols(Array(\"DepDelayDouble\", \"TaxiOutDouble\"))\n                .setOutputCol(\"features\")\n            ",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:47:50 AM",
+      "dateUpdated": "Dec 2, 2019 8:07:56 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -211,7 +211,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "assembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_49af5e371598\n"
+            "data": "assembler: org.apache.spark.ml.feature.VectorAssembler \u003d vecAssembler_aaf948992bb1\n"
           }
         ]
       },
@@ -219,8 +219,8 @@
       "jobName": "paragraph_1559832222309_-1923941934",
       "id": "20190606-144342_1199565429",
       "dateCreated": "Jun 6, 2019 2:43:42 PM",
-      "dateStarted": "Jun 8, 2019 9:47:52 AM",
-      "dateFinished": "Jun 8, 2019 9:47:54 AM",
+      "dateStarted": "Dec 2, 2019 8:07:56 AM",
+      "dateFinished": "Dec 2, 2019 8:07:57 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -228,7 +228,7 @@
       "title": "Set Label and Feature for LinearRegression",
       "text": "val lr \u003d new LinearRegression()\n  .setLabelCol(\"DelayOutputVar\")\n  .setFeaturesCol(\"features\")\n  \nval paramGrid \u003d new ParamGridBuilder()\n  .addGrid(lr.regParam, Array(0.1, 0.01))\n  .addGrid(lr.fitIntercept)\n  .addGrid(lr.elasticNetParam, Array(0.0, 1.0))\n  .build()\n  \nval steps:Array[org.apache.spark.ml.PipelineStage] \u003d Array(assembler, lr)\nval pipeline \u003d new Pipeline().setStages(steps)",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:47:55 AM",
+      "dateUpdated": "Dec 2, 2019 8:08:07 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -249,7 +249,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "lr: org.apache.spark.ml.regression.LinearRegression \u003d linReg_4b366423c59a\nparamGrid: Array[org.apache.spark.ml.param.ParamMap] \u003d\nArray({\n\tlinReg_4b366423c59a-elasticNetParam: 0.0,\n\tlinReg_4b366423c59a-fitIntercept: true,\n\tlinReg_4b366423c59a-regParam: 0.1\n}, {\n\tlinReg_4b366423c59a-elasticNetParam: 1.0,\n\tlinReg_4b366423c59a-fitIntercept: true,\n\tlinReg_4b366423c59a-regParam: 0.1\n}, {\n\tlinReg_4b366423c59a-elasticNetParam: 0.0,\n\tlinReg_4b366423c59a-fitIntercept: false,\n\tlinReg_4b366423c59a-regParam: 0.1\n}, {\n\tlinReg_4b366423c59a-elasticNetParam: 1.0,\n\tlinReg_4b366423c59a-fitIntercept: false,\n\tlinReg_4b366423c59a-regParam: 0.1\n}, {\n\tlinReg_4b366423c59a-elasticNetParam: 0.0,\n\tlinReg_4b366423c59a-fitIntercept: true,\n\tlinReg_4b366423c59a-regParam: 0.01\n}, {\n\tlinReg_4b366423c59a-elasticNetParam: 1.0,\n\tlinReg_4b366423c59a-fitIntercept: true,\n\tlinReg_4b366423c59a-regPar...steps: Array[org.apache.spark.ml.PipelineStage] \u003d Array(vecAssembler_49af5e371598, linReg_4b366423c59a)\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_de32fef0badc\n"
+            "data": "lr: org.apache.spark.ml.regression.LinearRegression \u003d linReg_95cb8dbb876f\nparamGrid: Array[org.apache.spark.ml.param.ParamMap] \u003d\nArray({\n\tlinReg_95cb8dbb876f-elasticNetParam: 0.0,\n\tlinReg_95cb8dbb876f-fitIntercept: true,\n\tlinReg_95cb8dbb876f-regParam: 0.1\n}, {\n\tlinReg_95cb8dbb876f-elasticNetParam: 1.0,\n\tlinReg_95cb8dbb876f-fitIntercept: true,\n\tlinReg_95cb8dbb876f-regParam: 0.1\n}, {\n\tlinReg_95cb8dbb876f-elasticNetParam: 0.0,\n\tlinReg_95cb8dbb876f-fitIntercept: true,\n\tlinReg_95cb8dbb876f-regParam: 0.01\n}, {\n\tlinReg_95cb8dbb876f-elasticNetParam: 1.0,\n\tlinReg_95cb8dbb876f-fitIntercept: true,\n\tlinReg_95cb8dbb876f-regParam: 0.01\n}, {\n\tlinReg_95cb8dbb876f-elasticNetParam: 0.0,\n\tlinReg_95cb8dbb876f-fitIntercept: false,\n\tlinReg_95cb8dbb876f-regParam: 0.1\n}, {\n\tlinReg_95cb8dbb876f-elasticNetParam: 1.0,\n\tlinReg_95cb8dbb876f-fitIntercept: false,\n\tlinReg_95cb8dbb876f-regPa...steps: Array[org.apache.spark.ml.PipelineStage] \u003d Array(vecAssembler_aaf948992bb1, linReg_95cb8dbb876f)\npipeline: org.apache.spark.ml.Pipeline \u003d pipeline_9ca4b10bd59a\n"
           }
         ]
       },
@@ -257,8 +257,8 @@
       "jobName": "paragraph_1559833371094_560034715",
       "id": "20190606-150251_2132921487",
       "dateCreated": "Jun 6, 2019 3:02:51 PM",
-      "dateStarted": "Jun 8, 2019 9:47:55 AM",
-      "dateFinished": "Jun 8, 2019 9:47:58 AM",
+      "dateStarted": "Dec 2, 2019 8:08:07 AM",
+      "dateFinished": "Dec 2, 2019 8:08:08 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -266,7 +266,7 @@
       "title": "Validation data",
       "text": "val tvs \u003d new TrainValidationSplit()\n  .setEstimator(pipeline)\n  .setEvaluator(new RegressionEvaluator().setLabelCol(\"DelayOutputVar\"))\n  .setEstimatorParamMaps(paramGrid)\n  .setTrainRatio(0.7)\n\nval Array(training, test) \u003d data.randomSplit(Array(0.70, 0.30), seed \u003d 12345)\n",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:48:03 AM",
+      "dateUpdated": "Dec 2, 2019 8:08:35 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -287,7 +287,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "tvs: org.apache.spark.ml.tuning.TrainValidationSplit \u003d tvs_b860e33a7bfe\ntraining: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\ntest: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\n"
+            "data": "tvs: org.apache.spark.ml.tuning.TrainValidationSplit \u003d tvs_f820dce5d1dc\ntraining: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\ntest: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row] \u003d [ArrDelay: string, Origin: string ... 5 more fields]\n"
           }
         ]
       },
@@ -295,15 +295,15 @@
       "jobName": "paragraph_1559833991045_285982940",
       "id": "20190606-151311_856558491",
       "dateCreated": "Jun 6, 2019 3:13:11 PM",
-      "dateStarted": "Jun 8, 2019 9:48:03 AM",
-      "dateFinished": "Jun 8, 2019 9:48:06 AM",
+      "dateStarted": "Dec 2, 2019 8:08:36 AM",
+      "dateFinished": "Dec 2, 2019 8:08:37 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "println(training.count())\nprintln(test.count())",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:49:18 AM",
+      "dateUpdated": "Dec 2, 2019 8:09:15 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -331,8 +331,8 @@
       "jobName": "paragraph_1559987288634_743117062",
       "id": "20190608-094808_1886301369",
       "dateCreated": "Jun 8, 2019 9:48:08 AM",
-      "dateStarted": "Jun 8, 2019 9:49:18 AM",
-      "dateFinished": "Jun 8, 2019 9:49:20 AM",
+      "dateStarted": "Dec 2, 2019 8:09:15 AM",
+      "dateFinished": "Dec 2, 2019 8:09:17 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -340,7 +340,7 @@
       "title": "Training",
       "text": "val model \u003d tvs.fit(training)",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:49:37 AM",
+      "dateUpdated": "Dec 2, 2019 8:09:40 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -361,7 +361,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "model: org.apache.spark.ml.tuning.TrainValidationSplitModel \u003d tvs_b860e33a7bfe\n"
+            "data": "model: org.apache.spark.ml.tuning.TrainValidationSplitModel \u003d tvs_f820dce5d1dc\n"
           }
         ]
       },
@@ -369,15 +369,15 @@
       "jobName": "paragraph_1559834127971_-651049197",
       "id": "20190606-151527_336919147",
       "dateCreated": "Jun 6, 2019 3:15:27 PM",
-      "dateStarted": "Jun 8, 2019 9:49:37 AM",
-      "dateFinished": "Jun 8, 2019 9:49:44 AM",
+      "dateStarted": "Dec 2, 2019 8:09:40 AM",
+      "dateFinished": "Dec 2, 2019 8:09:45 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "test.show()",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:49:57 AM",
+      "dateUpdated": "Dec 2, 2019 8:09:56 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -405,8 +405,8 @@
       "jobName": "paragraph_1559834272486_-786097706",
       "id": "20190606-151752_1013175916",
       "dateCreated": "Jun 6, 2019 3:17:52 PM",
-      "dateStarted": "Jun 8, 2019 9:50:05 AM",
-      "dateFinished": "Jun 8, 2019 9:50:07 AM",
+      "dateStarted": "Dec 2, 2019 8:09:56 AM",
+      "dateFinished": "Dec 2, 2019 8:09:57 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -414,7 +414,7 @@
       "title": "Testing",
       "text": "val holdout \u003d model.transform(test).select(\"prediction\", \"DelayOutputVar\")\n\nval rm \u003d new RegressionMetrics(holdout.rdd.map(x \u003d\u003e\n  (x(0).asInstanceOf[Double], x(1).asInstanceOf[Double])))\n\nprintln(\"sqrt(MSE): \" + Math.sqrt(rm.meanSquaredError))\nprintln(\"mean absolute error: \" + \trm.meanAbsoluteError)\nprintln(\"R Squared: \" + rm.r2)                         \nprintln(\"Explained Variance: \" + rm.explainedVariance + \"\\n\")",
       "user": "anonymous",
-      "dateUpdated": "Jun 8, 2019 9:53:04 AM",
+      "dateUpdated": "Dec 2, 2019 8:10:04 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -435,7 +435,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "holdout: org.apache.spark.sql.DataFrame \u003d [prediction: double, DelayOutputVar: double]\nrm: org.apache.spark.mllib.evaluation.RegressionMetrics \u003d org.apache.spark.mllib.evaluation.RegressionMetrics@76016fee\nsqrt(MSE): 8.840151319395503\nmean absolute error: 6.432521636850314\nR Squared: 0.9398725467422797\nExplained Variance: 1239.9374867743036\n\n"
+            "data": "holdout: org.apache.spark.sql.DataFrame \u003d [prediction: double, DelayOutputVar: double]\nrm: org.apache.spark.mllib.evaluation.RegressionMetrics \u003d org.apache.spark.mllib.evaluation.RegressionMetrics@9d2a426\nsqrt(MSE): 8.840151319395503\nmean absolute error: 6.432521636850314\nR Squared: 0.9398725467422797\nExplained Variance: 1239.9374867743036\n\n"
           }
         ]
       },
@@ -443,8 +443,8 @@
       "jobName": "paragraph_1559834215140_911136962",
       "id": "20190606-151655_1203359554",
       "dateCreated": "Jun 6, 2019 3:16:55 PM",
-      "dateStarted": "Jun 8, 2019 9:53:04 AM",
-      "dateFinished": "Jun 8, 2019 9:53:05 AM",
+      "dateStarted": "Dec 2, 2019 8:10:04 AM",
+      "dateFinished": "Dec 2, 2019 8:10:06 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -502,15 +502,15 @@
   "name": "/Big-data-class/Module-16/Flight-delay",
   "id": "2ED7YNWBY",
   "angularObjects": {
-    "2EDKJJEDZ:shared_process": [],
-    "2ED4YE36S:shared_process": [],
-    "2EEG4EDQ1:shared_process": [],
-    "2ED3N6JNP:shared_process": [],
-    "2EC8KCWUX:shared_process": [],
-    "2EEAPS6SJ:shared_process": [],
-    "2EEVMRSHV:shared_process": [],
-    "2EFQRWMFP:shared_process": [],
-    "2EEHUTDV4:shared_process": []
+    "2ESV83UHN:shared_process": [],
+    "2EWA4M4PF:shared_process": [],
+    "2ESZUF52Q:shared_process": [],
+    "2EV3W8JCG:shared_process": [],
+    "2EWF9P5SP:shared_process": [],
+    "2EWCZX62Y:shared_process": [],
+    "2ESWQUBSG:shared_process": [],
+    "2EVTX8KPF:shared_process": [],
+    "2EVWSU8G1:shared_process": []
   },
   "config": {},
   "info": {}
